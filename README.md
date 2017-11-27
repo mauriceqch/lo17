@@ -40,3 +40,11 @@ Output : text\_lemmatise.xml, an XML document where words are transformed into t
 	./inversetable.sh
 
 Output : inversetables/inversetable_*.txt.
+
+# Correction
+
+Copy the lemmas data to the java project :
+
+	cp ./lemme_successeurs.txt ./correction/src/main/resources/data/lemmas.txt
+
+
