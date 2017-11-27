@@ -10,7 +10,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 import main.repl.GenericREPL;
-import main.spelling.Lemmatizer;
 import main.sql.TalMain3;
 import main.tokenizer.Stoplist;
 import main.tokenizer.TokenConstant;
@@ -20,7 +19,6 @@ import main.tokenizer.data.TokenType;
 
 public class App {
 	private static final Logger logger = LoggerFactory.getLogger(App.class);
-	private static final Lemmatizer lemme = new Lemmatizer();
 	private static final Stoplist stoplist = new Stoplist();
 
 	public static void main(String[] args) {
@@ -40,13 +38,6 @@ public class App {
 
 		list = list
 			.stream()
-			.map(token -> {
-				if (token.getType() != TokenType.WORD || isNumeric(token.getToken())) {
-					return token;
-				}
-
-				return getLemme(lemme, token);
-			})
 			.filter(s -> s.getType() != TokenType.WORD || !stoplist.isInStoplist(s.getToken()))
 			.collect(Collectors.toList());
 		
@@ -99,16 +90,6 @@ public class App {
 			.orElse(defaultValue.name());
 	}
 
-	private static Token getLemme(Lemmatizer lemme, Token token) {
-		List<String> results = lemme.getLemme(token.getToken());
-
-		if (results == null) {
-			return token;
-		}
-
-		return new Token(results.stream().findFirst().orElse(""), token.getType());
-	}
-
 	private static List<Token> wordsToTokens(List<String> words) {
 		return words
 				.stream()
@@ -126,11 +107,7 @@ public class App {
 					.stream()
 					.collect(Collectors.toList());
 	}
-	
-	private static boolean isNumeric(String s) {  
-	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
-	}
-	
+		
 	private static void print(String s) {
 		logger.info(s);
 	}
