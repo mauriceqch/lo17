@@ -14,6 +14,7 @@ import main.spelling.Lemmatizer;
 import main.sql.TalMain3;
 import main.tokenizer.Stoplist;
 import main.tokenizer.TokenConstant;
+import main.tokenizer.TokenFactory;
 import main.tokenizer.data.Token;
 import main.tokenizer.data.TokenType;
 
@@ -112,7 +113,7 @@ public class App {
 		return words
 				.stream()
 				.filter(word -> !stoplist.isInStoplist(word))
-				.map(w -> new Token(w))
+				.map(w -> TokenFactory.create(w))
 				.collect(Collectors.toList());
 	}
 
