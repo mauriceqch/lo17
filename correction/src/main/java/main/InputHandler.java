@@ -12,6 +12,7 @@ import com.google.common.collect.Lists;
 import main.db.PostgresExecutor;
 import main.sql.TalMain3;
 import main.sql.data.Arbre;
+import main.sql.lib.BasicFormatterImpl;
 import main.tokenizer.Stoplist;
 import main.tokenizer.TokenConstant;
 import main.tokenizer.TokenFactory;
@@ -22,7 +23,7 @@ public class InputHandler {
 	private static Logger logger = LoggerFactory.getLogger(InputHandler.class);
 	private static final Stoplist stoplist = new Stoplist();
 
-	public static String handleInput(String input) {
+	public static QueryResult handleInput(String input) {
 		Arbre arbre = processInput(input).getFils();
 		String query = arbre.sortArbre();
 
@@ -43,7 +44,7 @@ public class InputHandler {
 		logger.info("param_count : " + paramCount);
 		logger.info("intersection : " + intersection);
 
-		return PostgresExecutor.executeSelect(query);
+		return new QueryResult(PostgresExecutor.executeSelect(query), new BasicFormatterImpl().format(query));
 	}
 
 	public static Arbre processInput(String input) {

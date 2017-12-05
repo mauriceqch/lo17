@@ -3,7 +3,10 @@ package main;
 import java.io.IOException;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import fi.iki.elonen.NanoHTTPD;
+import main.objectmapper.ObjectMapperProvider;
 
 public class HttpApp extends NanoHTTPD {
 	public HttpApp() throws IOException {
@@ -26,7 +29,11 @@ public class HttpApp extends NanoHTTPD {
         Map<String, String> parms = session.getParms();
         String query = parms.get("query");
 		if (query != null) {
-            msg += InputHandler.handleInput(query);
+            try {
+				msg += ObjectMapperProvider.get().writeValueAsString(InputHandler.handleInput(query));
+			} catch (JsonProcessingException e) {
+				throw new RuntimeException(e);
+			}
         }
         Response resp = newFixedLengthResponse(msg);
         resp.setMimeType("application/json");;
