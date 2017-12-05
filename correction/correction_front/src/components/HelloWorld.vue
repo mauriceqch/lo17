@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
-    <h1>LO17</h1>
-    <input v-model="query" v-on:input="fetchData" placeholder="Requête">
-    <div>Requête : {{ query }}</div>
+    <div class="query-box">
+      <input v-model="query" v-on:input="fetchData" placeholder="Requête" class="form-control">
+    </div>
     <div>
       <div v-if="data.length > 0" class="table-responsive">
         <table class="table table-striped">
@@ -11,13 +11,13 @@
               {{ col }}
             </th>
           </thead>
-          <tbody>
-            <tr v-for="item in data">
-              <td v-for="col in columns">
-                {{ item[col] }}
-              </td>
-            </tr>
-          </tbody>
+            <transition-group name="slide-fade" tag="tbody">
+              <tr v-for="item in data" v-bind:key="JSON.stringify(item)">
+                <td v-for="col in columns">
+                  {{ item[col] }}
+                </td>
+              </tr>
+            </transition-group>
         </table>
       </div>
       <div v-else>Pas de résultats</div>
@@ -64,4 +64,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .15s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.hello {
+  padding: 1rem;
+}
+
+.query-box {
+  padding: 1rem;
+}
 </style>

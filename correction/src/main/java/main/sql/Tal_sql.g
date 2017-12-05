@@ -2,10 +2,12 @@ grammar Tal_sql;
 
 @lexer::header {
     package main.sql.output;
+    import main.sql.data.Arbre;
 }
 
 @parser::header {
     package main.sql.output;
+    import main.sql.data.Arbre;
 }
 
 SELECT : 'SELECT'
@@ -80,7 +82,7 @@ requete returns [Arbre req_arbre = new Arbre("")]
 		| DATE
 		{
 			String columns = "jour, mois, annee, texte.fichier";
-			String displayColumns = "count(*) as count, " + columns;
+			String displayColumns = "string_agg(mot, ',') as mots, " + columns;
 			req_arbre.ajouteFils(new Arbre("", displayColumns));
 			req_arbre.setStringData("columns", columns);
 		})

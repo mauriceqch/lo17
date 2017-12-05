@@ -1,6 +1,7 @@
-// $ANTLR 3.5.1 /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-05 15:20:48
+// $ANTLR 3.5.1 /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-05 15:55:30
 
     package main.sql.output;
+    import main.sql.data.Arbre;
 
 
 import org.antlr.runtime.*;
@@ -44,8 +45,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = SELECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:11:8: ( 'SELECT' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:11:10: 'SELECT'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:13:8: ( 'SELECT' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:13:10: 'SELECT'
 			{
 			match("SELECT"); 
 
@@ -65,8 +66,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = COUNT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:14:8: ( 'COUNT' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:14:10: 'COUNT'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:16:8: ( 'COUNT' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:16:10: 'COUNT'
 			{
 			match("COUNT"); 
 
@@ -86,8 +87,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = FICHIER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:17:9: ( 'FICHIER' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:17:11: 'FICHIER'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:19:9: ( 'FICHIER' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:19:11: 'FICHIER'
 			{
 			match("FICHIER"); 
 
@@ -107,8 +108,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = NUMERO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:20:8: ( 'NUMERO' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:20:10: 'NUMERO'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:22:8: ( 'NUMERO' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:22:10: 'NUMERO'
 			{
 			match("NUMERO"); 
 
@@ -128,8 +129,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = NOMBRE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:23:8: ( 'NOMBRE' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:23:10: 'NOMBRE'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:25:8: ( 'NOMBRE' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:25:10: 'NOMBRE'
 			{
 			match("NOMBRE"); 
 
@@ -149,7 +150,7 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = CONJ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:26:6: ( 'ET' | 'OU' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:28:6: ( 'ET' | 'OU' )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='E') ) {
@@ -167,14 +168,14 @@ public class Tal_sqlLexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:26:8: 'ET'
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:28:8: 'ET'
 					{
 					match("ET"); 
 
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:26:15: 'OU'
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:28:15: 'OU'
 					{
 					match("OU"); 
 
@@ -196,8 +197,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = POINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:29:7: ( '.' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:29:9: '.'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:7: ( '.' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:9: '.'
 			{
 			match('.'); 
 			}
@@ -216,8 +217,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = TEXTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:7: ( 'TEXTE' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:9: 'TEXTE'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:7: ( 'TEXTE' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:9: 'TEXTE'
 			{
 			match("TEXTE"); 
 
@@ -237,8 +238,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:35:6: ( 'DATE' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:35:8: 'DATE'
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:37:6: ( 'DATE' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:37:8: 'DATE'
 			{
 			match("DATE"); 
 
@@ -258,7 +259,7 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = CHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:38:7: ( 'Â' .. 'ü' | 'a' .. 'z' | 'A' .. 'Z' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:40:7: ( 'Â' .. 'ü' | 'a' .. 'z' | 'A' .. 'Z' )
 			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||(input.LA(1) >= '\u00C2' && input.LA(1) <= '\u00FC') ) {
@@ -285,10 +286,10 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = VAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:41:6: ( ( CHAR | '0' .. '9' )+ )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:41:8: ( CHAR | '0' .. '9' )+
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:43:6: ( ( CHAR | '0' .. '9' )+ )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:43:8: ( CHAR | '0' .. '9' )+
 			{
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:41:8: ( CHAR | '0' .. '9' )+
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:43:8: ( CHAR | '0' .. '9' )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -337,7 +338,7 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:44:5: ( ( ' ' | '\\t' | '\\r' ) | '\\n' )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:46:5: ( ( ' ' | '\\t' | '\\r' ) | '\\n' )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='\t'||LA3_0=='\r'||LA3_0==' ') ) {
@@ -355,7 +356,7 @@ public class Tal_sqlLexer extends Lexer {
 
 			switch (alt3) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:44:7: ( ' ' | '\\t' | '\\r' )
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:46:7: ( ' ' | '\\t' | '\\r' )
 					{
 					if ( input.LA(1)=='\t'||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 						input.consume();
@@ -369,7 +370,7 @@ public class Tal_sqlLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:44:38: '\\n'
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:46:38: '\\n'
 					{
 					match('\n'); 
 					}

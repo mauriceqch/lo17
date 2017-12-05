@@ -1,17 +1,13 @@
-// $ANTLR 3.5.1 /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-05 15:20:48
+// $ANTLR 3.5.1 /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-05 15:55:30
 
     package main.sql.output;
+    import main.sql.data.Arbre;
 
 
-import org.antlr.runtime.BitSet;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.Parser;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenStream;
-
-import main.sql.data.Arbre;
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class Tal_sqlParser extends Parser {
@@ -54,7 +50,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "listerequetes"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:47:1: listerequetes returns [Arbre lr_arbre = new Arbre(\"\")] : r= requete ( POINT )? ;
+	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:49:1: listerequetes returns [Arbre lr_arbre = new Arbre(\"\")] : r= requete ( POINT )? ;
 	public final Arbre listerequetes() throws RecognitionException {
 		Arbre lr_arbre =  new Arbre("");
 
@@ -62,14 +58,14 @@ public class Tal_sqlParser extends Parser {
 		Arbre r =null;
 
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:47:55: (r= requete ( POINT )? )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:48:3: r= requete ( POINT )?
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:49:55: (r= requete ( POINT )? )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:50:3: r= requete ( POINT )?
 			{
 			pushFollow(FOLLOW_requete_in_listerequetes190);
 			r=requete();
 			state._fsp--;
 
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:48:15: ( POINT )?
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:50:15: ( POINT )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==POINT) ) {
@@ -77,7 +73,7 @@ public class Tal_sqlParser extends Parser {
 			}
 			switch (alt1) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:48:15: POINT
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:50:15: POINT
 					{
 					match(input,POINT,FOLLOW_POINT_in_listerequetes192); 
 					}
@@ -105,7 +101,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "requete"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:54:1: requete returns [Arbre req_arbre = new Arbre(\"\")] : SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) ps= params ;
+	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:56:1: requete returns [Arbre req_arbre = new Arbre(\"\")] : SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) ps= params ;
 	public final Arbre requete() throws RecognitionException {
 		Arbre req_arbre =  new Arbre("");
 
@@ -114,14 +110,14 @@ public class Tal_sqlParser extends Parser {
 
 		Arbre ps_arbre;
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:55:26: ( SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) ps= params )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:56:3: SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) ps= params
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:57:26: ( SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) ps= params )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:58:3: SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) ps= params
 			{
 			match(input,SELECT,FOLLOW_SELECT_in_requete220); 
 
 							req_arbre.ajouteFils(new Arbre("","select "));
 						
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:60:3: ( NOMBRE | FICHIER | NUMERO | DATE )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:62:3: ( NOMBRE | FICHIER | NUMERO | DATE )
 			int alt2=4;
 			switch ( input.LA(1) ) {
 			case NOMBRE:
@@ -151,7 +147,7 @@ public class Tal_sqlParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:60:4: NOMBRE
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:62:4: NOMBRE
 					{
 					match(input,NOMBRE,FOLLOW_NOMBRE_in_requete231); 
 
@@ -162,7 +158,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:66:5: FICHIER
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:68:5: FICHIER
 					{
 					match(input,FICHIER,FOLLOW_FICHIER_in_requete242); 
 
@@ -174,7 +170,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:73:6: NUMERO
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:75:6: NUMERO
 					{
 					match(input,NUMERO,FOLLOW_NUMERO_in_requete254); 
 
@@ -186,12 +182,12 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:80:5: DATE
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:82:5: DATE
 					{
 					match(input,DATE,FOLLOW_DATE_in_requete265); 
 
 								String columns = "jour, mois, annee, texte.fichier";
-								String displayColumns = "count(*) as count, " + columns;
+								String displayColumns = "string_agg(mot, ',') as mots, " + columns;
 								req_arbre.ajouteFils(new Arbre("", displayColumns));
 								req_arbre.setStringData("columns", columns);
 							
@@ -200,7 +196,7 @@ public class Tal_sqlParser extends Parser {
 
 			}
 
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:87:3: ( TEXTE | DATE )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:89:3: ( TEXTE | DATE )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==TEXTE) ) {
@@ -218,7 +214,7 @@ public class Tal_sqlParser extends Parser {
 
 			switch (alt3) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:87:4: TEXTE
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:89:4: TEXTE
 					{
 					match(input,TEXTE,FOLLOW_TEXTE_in_requete275); 
 
@@ -228,7 +224,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:92:5: DATE
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:94:5: DATE
 					{
 					match(input,DATE,FOLLOW_DATE_in_requete286); 
 
@@ -268,7 +264,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "params"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:108:1: params returns [Arbre les_pars_arbre = new Arbre(\"\")] : par1= param ( (conj= CONJ )? par2= param )* ;
+	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:110:1: params returns [Arbre les_pars_arbre = new Arbre(\"\")] : par1= param ( (conj= CONJ )? par2= param )* ;
 	public final Arbre params() throws RecognitionException {
 		Arbre les_pars_arbre =  new Arbre("");
 
@@ -279,8 +275,8 @@ public class Tal_sqlParser extends Parser {
 
 		Arbre par1_arbre, par2_arbre;
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:109:40: (par1= param ( (conj= CONJ )? par2= param )* )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:110:3: par1= param ( (conj= CONJ )? par2= param )*
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:111:40: (par1= param ( (conj= CONJ )? par2= param )* )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:112:3: par1= param ( (conj= CONJ )? par2= param )*
 			{
 			pushFollow(FOLLOW_param_in_params335);
 			par1=param();
@@ -291,7 +287,7 @@ public class Tal_sqlParser extends Parser {
 							les_pars_arbre.ajouteFils(par1_arbre);
 							les_pars_arbre.incrementIntegerData("param_count");
 						
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:116:3: ( (conj= CONJ )? par2= param )*
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:118:3: ( (conj= CONJ )? par2= param )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -302,9 +298,9 @@ public class Tal_sqlParser extends Parser {
 
 				switch (alt5) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:116:4: (conj= CONJ )? par2= param
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:118:4: (conj= CONJ )? par2= param
 					{
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:116:9: (conj= CONJ )?
+					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:118:9: (conj= CONJ )?
 					int alt4=2;
 					int LA4_0 = input.LA(1);
 					if ( (LA4_0==CONJ) ) {
@@ -312,7 +308,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt4) {
 						case 1 :
-							// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:116:9: conj= CONJ
+							// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:118:9: conj= CONJ
 							{
 							conj=(Token)match(input,CONJ,FOLLOW_CONJ_in_params350); 
 							}
@@ -359,7 +355,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "param"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:130:1: param returns [Arbre lepar_arbre = new Arbre(\"\")] : a= VAR ;
+	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:132:1: param returns [Arbre lepar_arbre = new Arbre(\"\")] : a= VAR ;
 	public final Arbre param() throws RecognitionException {
 		Arbre lepar_arbre =  new Arbre("");
 
@@ -367,8 +363,8 @@ public class Tal_sqlParser extends Parser {
 		Token a=null;
 
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:130:51: (a= VAR )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:131:2: a= VAR
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:132:51: (a= VAR )
+			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:133:2: a= VAR
 			{
 			a=(Token)match(input,VAR,FOLLOW_VAR_in_param385); 
 			 lepar_arbre.ajouteFils(new Arbre("mot =", "'"+a.getText()+"'"));
