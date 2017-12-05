@@ -29,7 +29,7 @@ public class ResultSetSerializer extends StdSerializer<ResultSet> {
 
 				ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 				for(int idx = 1; idx<= resultSetMetaData.getColumnCount(); idx++) {
-					jgen.writeStringField(resultSetMetaData.getColumnLabel(idx), resultSet.getString(idx));
+					jgen.writeStringField(resultSetMetaData.getColumnLabel(idx), resultSet.getString(idx).trim());
 				}
 
 				jgen.writeEndObject();

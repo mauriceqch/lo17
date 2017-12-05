@@ -45,7 +45,7 @@ WS  : (' ' |'\t' | '\r') {skip();} | '\n'
 ;
 
 listerequetes returns [Arbre lr_arbre = new Arbre("")]:
-		r = requete POINT
+		r = requete POINT?
 			{
 				lr_arbre.ajouteFils($r.req_arbre);
 			}
@@ -79,8 +79,8 @@ requete returns [Arbre req_arbre = new Arbre("")]
 			}
 		| DATE
 		{
-			String columns = "mois, annee, texte.fichier";
-			String displayColumns = "count(*) as count, jour, " + columns;
+			String columns = "jour, mois, annee, texte.fichier";
+			String displayColumns = "count(*) as count, " + columns;
 			req_arbre.ajouteFils(new Arbre("", displayColumns));
 			req_arbre.setStringData("columns", columns);
 		})
