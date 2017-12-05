@@ -9,25 +9,44 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-import main.repl.GenericREPL;
+import main.db.PostgresExecutor;
 import main.sql.TalMain3;
+import main.sql.data.Arbre;
 import main.tokenizer.Stoplist;
 import main.tokenizer.TokenConstant;
 import main.tokenizer.TokenFactory;
 import main.tokenizer.data.Token;
 import main.tokenizer.data.TokenType;
 
-public class App {
-	private static final Logger logger = LoggerFactory.getLogger(App.class);
+public class InputHandler {
+	private static Logger logger = LoggerFactory.getLogger(InputHandler.class);
 	private static final Stoplist stoplist = new Stoplist();
 
-	public static void main(String[] args) {
-		GenericREPL.start((input) -> {
-			processInput(input);
-		});
+	public static String handleInput(String input) {
+		Arbre arbre = processInput(input).getFils();
+		String query = arbre.sortArbre();
+
+		String columns = arbre.getStringData("columns");
+		Integer columnCount = columns.split(",").length;
+		Integer paramCount = arbre.getIntegerData("param_count");
+		Boolean intersection = arbre.getBooleanData("intersection");
+		
+		if (Boolean.TRUE.equals(intersection)) {
+			query = query + "group by " + columns + " having count(distinct mot) >= " + paramCount;
+		} else {
+			query = query + "group by " + columns;
+		}
+		
+		logger.info("query : " + query);
+		logger.info("columns : " + columns);
+		logger.info("column_count : " + columnCount);
+		logger.info("param_count : " + paramCount);
+		logger.info("intersection : " + intersection);
+
+		return PostgresExecutor.executeSelect(query);
 	}
 
-	public static void processInput(String input) {
+	public static Arbre processInput(String input) {
 		List<String> words = splitNormalizeInput(input);
 
 		List<Token> tokens = wordsToTokens(words);
@@ -63,7 +82,10 @@ public class App {
 					.collect(Collectors.joining(" "));
 		
 		print(result);
-		print(TalMain3.toSql(result + "."));
+		
+		Long paramCount = list.stream().filter(t -> t.getType() == TokenType.WORD).count();
+		
+		return TalMain3.toSql(result + ".");
 	}
 
 	private static void printTokens(List<Token> list) {

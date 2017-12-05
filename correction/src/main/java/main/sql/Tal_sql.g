@@ -44,12 +44,10 @@ VAR 	: (CHAR | '0'..'9')+
 WS  : (' ' |'\t' | '\r') {skip();} | '\n' 
 ;
 
-listerequetes returns [String sql = ""]
-	@init	{Arbre lr_arbre;}: 
+listerequetes returns [Arbre lr_arbre = new Arbre("")]:
 		r = requete POINT
 			{
-				lr_arbre = $r.req_arbre;
-				sql = lr_arbre.sortArbre();
+				lr_arbre.ajouteFils($r.req_arbre);
 			}
 ;
 
@@ -61,19 +59,30 @@ requete returns [Arbre req_arbre = new Arbre("")]
 			} 
 		(NOMBRE
 			{
-			req_arbre.ajouteFils(new Arbre("","count(distinct fichier)"));
+			String columns = "count(distinct fichier)";
+			req_arbre.ajouteFils(new Arbre("",columns));
+			req_arbre.setStringData("columns", columns);
 			}
 		| FICHIER
 			{
-			req_arbre.ajouteFils(new Arbre("","distinct fichier"));
+			String columns = "fichier";
+			String displayColumns = "string_agg(mot, ',') as mots, " + columns;
+			req_arbre.ajouteFils(new Arbre("",displayColumns));
+			req_arbre.setStringData("columns", columns);
 			}
 		 | NUMERO
 			{
-			req_arbre.ajouteFils(new Arbre("","distinct numero"));
+			String columns = "numero";
+			String displayColumns = "string_agg(mot, ',') as mots, " + columns;
+			req_arbre.ajouteFils(new Arbre("",displayColumns));
+			req_arbre.setStringData("columns", columns);
 			}
 		| DATE
 		{
-			req_arbre.ajouteFils(new Arbre("","distinct jour, mois, annee, fichier"));
+			String columns = "mois, annee, texte.fichier";
+			String displayColumns = "count(*) as count, jour, " + columns;
+			req_arbre.ajouteFils(new Arbre("", displayColumns));
+			req_arbre.setStringData("columns", columns);
 		})
 		(TEXTE
 			{
@@ -91,6 +100,8 @@ requete returns [Arbre req_arbre = new Arbre("")]
 			{
 				ps_arbre = $ps.les_pars_arbre;
 				req_arbre.ajouteFils(ps_arbre);
+				req_arbre.setIntegerData("param_count", ps_arbre.getIntegerData("param_count"));
+				req_arbre.setBooleanData("intersection", ps_arbre.getBooleanData("intersection"));
 			}
 ;
 
@@ -100,12 +111,18 @@ params returns [Arbre les_pars_arbre = new Arbre("")]
 			{
 				par1_arbre = $par1.lepar_arbre;
 				les_pars_arbre.ajouteFils(par1_arbre);
+				les_pars_arbre.incrementIntegerData("param_count");
 			}
 		(conj = CONJ? par2 = param
 			{
 				par2_arbre = $par2.lepar_arbre;
-				les_pars_arbre.ajouteFils(new Arbre("", conj == null ? "OR" : (conj.getText().equals("OU") ? "OR" : "AND")));
+				les_pars_arbre.ajouteFils(new Arbre("", "OR"));
 				les_pars_arbre.ajouteFils(par2_arbre);
+				les_pars_arbre.incrementIntegerData("param_count");			
+				
+				if (conj != null && "ET".equals(conj.getText())) {
+					les_pars_arbre.setBooleanData("intersection", true);
+				}
 			}
 		)*
 ;

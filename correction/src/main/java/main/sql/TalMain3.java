@@ -7,6 +7,7 @@ import java.util.Scanner;
 import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 
+import main.sql.data.Arbre;
 import main.sql.output.Tal_sqlLexer;
 import main.sql.output.Tal_sqlParser;
 
@@ -25,12 +26,12 @@ public class TalMain3 {
 		}
 	}
 
-	public static String toSql(String s) {
+	public static Arbre toSql(String s) {
 		try{
 			Tal_sqlLexer lexer = new Tal_sqlLexer(new ANTLRReaderStream(new StringReader(s)));
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			Tal_sqlParser parser = new Tal_sqlParser(tokens);
-			String arbre = parser.listerequetes();
+			Arbre arbre = parser.listerequetes();
 
 			return arbre;
 		} catch(Exception e) {

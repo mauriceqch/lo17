@@ -26,7 +26,7 @@ public class AppTest {
             lines.forEach(line -> {
             	String sentence = line.trim();
             	logger.info("Testing sentence '" + sentence + "'");
-            	App.processInput(sentence);
+            	InputHandler.processInput(sentence);
             });
             lines.close();
  

@@ -3,7 +3,7 @@ package main.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.function.Consumer;
+import java.util.function.Function;
 
 import main.config.ConfigManager;
 import main.config.DbConfig;
@@ -11,7 +11,7 @@ import main.config.DbConfig;
 public class ConnectionManager {
 	private static final DbConfig dbConfig = ConfigManager.getDbConfig();
 
-	public static void doWithConnection(Consumer<Connection> consumer) {
+	public static <T> T doWithConnection(Function<Connection, T> function) {
 		// Establish Connection to the database at URL with usename and password
 		try (Connection connection = DriverManager.getConnection(
 					dbConfig.getUrl(),
@@ -19,8 +19,7 @@ public class ConnectionManager {
 					dbConfig.getPassword()
 		)) {
 
-			consumer.accept(connection);
-
+			return function.apply(connection);
 		} catch(SQLException ex) {
 			// print out decent erreur messages
 			System.err.println("==> SQLException: ");
@@ -31,6 +30,7 @@ public class ConnectionManager {
 				ex = ex.getNextException();
 				System.out.println("");
 			}
+			throw new RuntimeException(ex);
 		}
 	}
 }

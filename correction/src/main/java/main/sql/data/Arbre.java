@@ -1,10 +1,46 @@
 package main.sql.data;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Arbre {
 	Arbre fils=null;
 	Arbre frere=null;
 	String categorie;
 	String mot;
+	private Map<String, Object> data = new HashMap<>();
+	
+	public Integer getIntegerData(String key) {
+		return (Integer) data.get(key);
+	}
+
+	public void setIntegerData(String key, Integer value) {
+		data.put(key, value);
+	}
+	
+	public Boolean getBooleanData(String key) {
+		return (Boolean) data.get(key);
+	}
+
+	public void setBooleanData(String key, Boolean value) {
+		data.put(key, value);
+	}
+
+	public String getStringData(String key) {
+		return (String) data.get(key);
+	}
+
+	public void setStringData(String key, String value) {
+		data.put(key, value);
+	}
+
+	public void incrementIntegerData(String key) {
+		data.put(key, ((Integer) data.getOrDefault(key, 0)) + 1);
+	}
+	
+	public Arbre getFils() {
+		return fils;
+	}
 
 	public Arbre(String categorie,String mot) {
 		this.categorie = categorie ;
@@ -34,25 +70,19 @@ public class Arbre {
 		}
 	}
 
-	public void afficheCat() {
-		//	afficheCatAvecNl();
-		System.out.println(sortArbreAvecNl());
-		System.out.println();
+	public String sortArbre() {
+		return sortArbreAvecNl(false);
 	}
 
-	public String sortArbre(){
-		return sortArbreAvecNl();
-	}
-
-	private String sortArbreAvecNl() {
+	private String sortArbreAvecNl(boolean withParens) {
 		String arbre = categorie + " " + mot +" ";
 		if (fils != null) {
-			arbre = arbre +" ( ";
-			arbre = arbre + fils.sortArbreAvecNl();
-			arbre = arbre +" )";
+			if (withParens) { arbre = arbre +" ( "; }
+			arbre = arbre + fils.sortArbreAvecNl(true);
+			if (withParens) { arbre = arbre +" ) "; }
 		}
 		if (frere != null) {
-			arbre = arbre + frere.sortArbreAvecNl();
+			arbre = arbre + frere.sortArbreAvecNl(true);
 		}
 		return arbre;
 	}
@@ -80,6 +110,5 @@ public class Arbre {
 			frere.afficheCatSansNl();
 		}
 	}
-
 
 }
