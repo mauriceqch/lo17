@@ -3,7 +3,19 @@
     <div class="query-box">
       <input v-model="query" v-on:input="fetchData" placeholder="Requête" class="form-control">
     </div>
-    <div class="query-results row">
+    <div class="file-preview" v-if="filename !== ''">
+      <div class="file-preview-header">
+        <div class="file-preview-header-title">
+          {{ filename }}
+        </div>
+        <div class="file-preview-header-close">
+          <span v-on:click="closeFile()" class="link">X</span>
+        </div>
+      </div>
+      <iframe class="file-preview-container" v-bind:src="'/api/?file=' + filename">
+      </iframe>
+    </div>
+    <div class="query-results row" v-else>
       <div class="query-description">
         <div>
           <pre>
@@ -23,7 +35,8 @@
                 <transition-group name="slide-fade" tag="tbody">
                   <tr v-for="item in data" v-bind:key="JSON.stringify(item)">
                     <td v-for="col in columns">
-                      {{ item[col] }}
+                      <span class="link" v-if="col === 'fichier'" v-on:click="fetchFile(item[col])">{{ item[col] }}</span>
+                      <span v-else>{{ item[col] }}</span>
                     </td>
                   </tr>
                 </transition-group>
@@ -45,6 +58,7 @@ export default {
       finalQuery: '',
       data: [],
       columns: [],
+      filename: '',
     };
   },
   methods: {
@@ -71,6 +85,13 @@ export default {
           this.data = [];
           this.columns = [];
         });
+    },
+    fetchFile(file) {
+      console.log(`Fetching file ${file}`);
+      this.filename = file;
+    },
+    closeFile() {
+      this.filename = '';
     },
   },
 };
@@ -114,7 +135,9 @@ export default {
 }
 
 .query-description {
-  flex: 1 0 0;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
   margin-right: 1rem;
   overflow: auto;
   height: 100%;
@@ -136,5 +159,45 @@ pre {
 .results-col {
   overflow: auto;
   height: 100%;
+}
+
+.file-preview {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.file-preview-container {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.file-preview-header {
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.file-preview-header-title {
+  flex: 1 0 auto;
+}
+.file-preview-header-close {
+  position: absolute;
+  right: 0;
+  padding-right: 1rem;
+}
+
+.link {
+  cursor:pointer;
+  color:blue;
+  text-decoration:underline;
+}
+
+link:hover {
+     text-decoration:none;
+     text-shadow: 1px 1px 1px #555;
 }
 </style>

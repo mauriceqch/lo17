@@ -6,7 +6,7 @@ import java.nio.file.Path;
 
 public class BulletinReader {
 	public static String readBulletin(String id) {
-		Path filePath = ReaderUtil.getFilePath("/data/BULLETINS/" + id + ".htm");
+		Path filePath = ReaderUtil.getFilePath("/data/BULLETINS/" + id);
 		
 		try {
 			return new String(Files.readAllBytes(filePath));
