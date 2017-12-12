@@ -1,7 +1,6 @@
 package main.data.readers;
 
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -9,9 +8,7 @@ public class GenericLineReaderUtil {
 	public static <T> T readAndProcess(String file, Function<Stream<String>, T> function)  {
 		T result = null;
 		try {
-            Stream <String> lines = Files.lines(
-            		Paths.get(TokensReader.class.getResource(file).toURI())
-			);
+            Stream <String> lines = Files.lines(ReaderUtil.getFilePath(file));
             
             result = function.apply(lines);
             

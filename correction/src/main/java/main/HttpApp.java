@@ -6,6 +6,7 @@ import java.util.Map;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import fi.iki.elonen.NanoHTTPD;
+import main.data.readers.BulletinReader;
 import main.objectmapper.ObjectMapperProvider;
 
 public class HttpApp extends NanoHTTPD {
@@ -25,19 +26,35 @@ public class HttpApp extends NanoHTTPD {
 
     @Override
     public Response serve(IHTTPSession session) {
-        String msg = "";
-        Map<String, String> parms = session.getParms();
-        String query = parms.get("query");
-		if (query != null) {
-            try {
-				msg += ObjectMapperProvider.get().writeValueAsString(InputHandler.handleInput(query));
-			} catch (JsonProcessingException e) {
-				throw new RuntimeException(e);
+    	try {
+			String msg = "";
+			Map<String, String> parms = session.getParms();
+			
+			String mimeType = null;
+			
+			String query = parms.get("query");
+			String file = parms.get("file");
+			if (query != null) {
+				try {
+					msg += ObjectMapperProvider.get().writeValueAsString(InputHandler.handleInput(query));
+				} catch (JsonProcessingException e) {
+					throw new RuntimeException(e);
+				}
+				mimeType = "application/json";
+			} else if (file != null) {
+				msg += BulletinReader.readBulletin(file);
+				mimeType = "text/html";
 			}
-        }
-        Response resp = newFixedLengthResponse(msg);
-        resp.setMimeType("application/json");;
-        
-        return resp;
+			
+			Response resp = newFixedLengthResponse(msg);
+			if (mimeType != null) {
+				resp.setMimeType(mimeType);
+			}
+
+			return resp;
+    	} catch (Throwable t) {
+    		t.printStackTrace();
+    		throw new RuntimeException(t);
+    	}
     }
 }
