@@ -1,7 +1,7 @@
 package main.data.readers;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ public class LemmasReader extends GenericReader<Map<String, String>> {
 
 	public LemmasReader() {
 		super(GenericLineReaderUtil.readAndProcess("/data/lemmas.txt", (lines) -> {
-			Map<String, String> lemmas = new HashMap<>();
+			Map<String, String> lemmas = new TreeMap<>();
 
             lines.forEach(line -> {
             	String[] items = line.split("\t");
