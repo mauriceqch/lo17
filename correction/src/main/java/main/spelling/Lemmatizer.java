@@ -59,7 +59,7 @@ public class Lemmatizer {
 				.keySet()
 				.stream()
 				.map(currentWord -> {
-					return new WordWithProximity(currentWord, proximity(currentWord, word));
+					return new WordWithProximity(lemme.get(currentWord), proximity(currentWord, word));
 				})
 				.filter(lemmeWithProximity -> {
 					return lemmeWithProximity.getProximity() != 0;
@@ -112,7 +112,7 @@ public class Lemmatizer {
 		List<WordWithProximity> results = lemme
 				.keySet()
 				.stream()
-				.map(r -> new WordWithProximity(r, CustomLevenshtein.levenshteinCompare(r, word)))
+				.map(r -> new WordWithProximity(lemme.get(r), CustomLevenshtein.levenshteinCompare(r, word)))
 				.sorted((w1, w2) -> Double.compare(w1.getProximity(), w2.getProximity()))
 				.collect(Collectors.toList());
 		WordWithProximity result = results.isEmpty() ? null : results.get(0);
