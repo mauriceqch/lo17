@@ -89,27 +89,35 @@ requete returns [Arbre req_arbre = new Arbre("")]
 		(TEXTE
 			{
 				req_arbre.ajouteFils(new Arbre("","from texte"));
-				req_arbre.ajouteFils(new Arbre("","where"));
 			}
 		| DATE
 			{
 				req_arbre.ajouteFils(new Arbre("","from date"));
 				req_arbre.ajouteFils(new Arbre("","left join texte on texte.fichier = date.fichier"));
-				req_arbre.ajouteFils(new Arbre("","where"));
 			}
 		)
-		ps = params 
+		ps = params?
 			{
 				ps_arbre = $ps.les_pars_arbre;
-				req_arbre.ajouteFils(ps_arbre);
-				req_arbre.setIntegerData("param_count", ps_arbre.getIntegerData("param_count"));
-				req_arbre.setBooleanData("intersection", ps_arbre.getBooleanData("intersection"));
+				if (ps_arbre != null) {
+					req_arbre.ajouteFils(new Arbre("","where"));
+					req_arbre.ajouteFils(ps_arbre);
+					Integer paramCount = ps_arbre.getIntegerData("param_count");
+					Boolean intersection = ps_arbre.getBooleanData("intersection");
+					if (paramCount != null) {
+						req_arbre.setIntegerData("param_count", paramCount);
+					}
+					if (intersection != null) {
+						req_arbre.setBooleanData("intersection", intersection);
+					}
+				}
+				
 			}
 ;
 
 params returns [Arbre les_pars_arbre = new Arbre("")]
 	@init	{Arbre par1_arbre, par2_arbre;} : 
-		par1 = param 
+		par1 = param
 			{
 				par1_arbre = $par1.lepar_arbre;
 				les_pars_arbre.ajouteFils(par1_arbre);
@@ -131,6 +139,6 @@ params returns [Arbre les_pars_arbre = new Arbre("")]
 
 param returns [Arbre lepar_arbre = new Arbre("")] :
 	a = VAR
-		{ lepar_arbre.ajouteFils(new Arbre("mot =", "'"+a.getText()+"'"));}
+		{ lepar_arbre.ajouteFils(new Arbre("mot =", "'"+ a.getText() +"'"));}
 ;
 

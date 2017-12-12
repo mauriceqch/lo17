@@ -38,6 +38,9 @@ public class InputHandler {
 			query = query + "group by " + columns;
 		}
 		
+		query = query + " limit 10";
+		
+		
 		logger.info("query : " + query);
 		logger.info("columns : " + columns);
 		logger.info("column_count : " + columnCount);

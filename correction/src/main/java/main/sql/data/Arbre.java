@@ -10,8 +10,13 @@ public class Arbre {
 	String mot;
 	private Map<String, Object> data = new HashMap<>();
 	
+	private static <T> T nullOr(Object check, T value) {
+		return check != null ? value : null;
+	}
+	
 	public Integer getIntegerData(String key) {
-		return (Integer) data.get(key);
+		Object object = data.get(key);
+		return nullOr(object, (Integer) object);
 	}
 
 	public void setIntegerData(String key, Integer value) {
@@ -19,7 +24,8 @@ public class Arbre {
 	}
 	
 	public Boolean getBooleanData(String key) {
-		return (Boolean) data.get(key);
+		Object object = data.get(key);
+		return nullOr(object, (Boolean) object);
 	}
 
 	public void setBooleanData(String key, Boolean value) {
@@ -27,7 +33,8 @@ public class Arbre {
 	}
 
 	public String getStringData(String key) {
-		return (String) data.get(key);
+		Object object = data.get(key);
+		return nullOr(object, (String) object);
 	}
 
 	public void setStringData(String key, String value) {
