@@ -12,7 +12,7 @@ public class LemmasReader extends GenericReader<Map<String, String>> {
 	private static final Logger logger = LoggerFactory.getLogger(LemmasReader.class);
 
 	public LemmasReader() {
-		super(GenericLineReaderUtil.readAndProcess("/data/lemmas.txt", (lines) -> {
+		super(GenericLineReaderUtil.readAndProcess("/data/reference_lemmas.txt", (lines) -> {
 			Map<String, String> lemmas = new TreeMap<>();
 
             lines.forEach(line -> {
