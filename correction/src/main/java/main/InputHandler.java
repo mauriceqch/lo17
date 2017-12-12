@@ -38,6 +38,7 @@ public class InputHandler {
 			query = query + "group by " + columns;
 		}
 		
+		query = query + " order by count(mot) desc";
 		query = query + " limit 10";
 		
 		

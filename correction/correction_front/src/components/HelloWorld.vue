@@ -77,7 +77,7 @@ export default {
             let data = r.data;
             this.finalQuery = r.query;
             this.data = data;
-            this.columns = Object.keys(data[0] || {});
+            this.columns = Object.keys(data[0] || {}).filter(c => c !== "mots");
           });
         })
         .catch((err) => {
