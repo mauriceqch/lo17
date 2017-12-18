@@ -3,6 +3,9 @@
     <div class="query-box">
       <input v-model="query" v-on:input="fetchData" placeholder="Requête" class="form-control">
     </div>
+    <div v-if="loading" class="query-status bg-info">
+      Loading...
+    </div>
     <div class="file-preview" v-if="filename !== ''">
       <div class="file-preview-header">
         <div class="file-preview-header-title">
@@ -15,7 +18,7 @@
       <iframe class="file-preview-container" v-bind:src="'/api/?file=' + filename">
       </iframe>
     </div>
-    <div class="query-results row" v-else>
+    <div class="query-results row" v-bind:class=" { loading: loading }" v-else>
       <div class="query-description">
         <div>
           <pre>
@@ -59,32 +62,42 @@ export default {
       data: [],
       columns: [],
       filename: '',
+      requestTimeout: null,
+      loading: false,
     };
   },
   methods: {
     fetchData() {
-      fetch(`/api/?query=${encodeURIComponent(this.query)}`)
-        .then((response) => {
-          if (response.status !== 200) {
-            console.log(`Looks like there was a problem. Status Code: ${response.status}`);
+      this.loading = true;
+      clearTimeout(this.requestTimeout);
+      this.requestTimeout = setTimeout(() => {
+        fetch(`/api/?query=${encodeURIComponent(this.query)}`)
+          .then((response) => {
+            if (response.status !== 200) {
+              console.log(`Looks like there was a problem. Status Code: ${response.status}`);
+              this.data = [];
+              this.columns = [];
+              return;
+            }
+
+            // Examine the text in the response
+            response.json().then((r) => {
+              let data = r.data;
+              this.finalQuery = r.query;
+              this.data = data;
+              this.columns = Object.keys(data[0] || {}).filter(c => c !== "mots");
+            });
+
+            this.loading = false;
+          })
+          .catch((err) => {
+            console.log('Fetch Error :-S', err);
             this.data = [];
             this.columns = [];
-            return;
-          }
 
-          // Examine the text in the response
-          response.json().then((r) => {
-            let data = r.data;
-            this.finalQuery = r.query;
-            this.data = data;
-            this.columns = Object.keys(data[0] || {}).filter(c => c !== "mots");
+            this.loading = false;
           });
-        })
-        .catch((err) => {
-          console.log('Fetch Error :-S', err);
-          this.data = [];
-          this.columns = [];
-        });
+      }, 200);
     },
     fetchFile(file) {
       console.log(`Fetching file ${file}`);
@@ -149,6 +162,12 @@ export default {
   height: 100%;
 }
 
+.query-status {
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
 pre {
   text-align: left;
   padding: 0.5rem;
@@ -196,8 +215,12 @@ pre {
   text-decoration:underline;
 }
 
-link:hover {
+.link:hover {
      text-decoration:none;
      text-shadow: 1px 1px 1px #555;
+}
+
+.loading {
+  opacity: 0.4;
 }
 </style>
