@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-19 01:41:42
+// $ANTLR 3.5.1 /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-19 01:51:49
 
     package main.sql.output;
     import main.sql.data.Arbre;
@@ -159,14 +159,15 @@ public class Tal_sqlParser extends Parser {
 					{
 					match(input,NOMBRE,FOLLOW_NOMBRE_in_requete339); 
 
-								String columns = "count(distinct texte.fichier)";
-								req_arbre.ajouteFils(new Arbre("",columns));
+								String columns = "";
+								String displayColumns = "count(distinct texte.fichier)" + columns;
+								req_arbre.ajouteFils(new Arbre("", displayColumns));
 								req_arbre.setStringData("columns", columns);
 								
 					}
 					break;
 				case 2 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:76:5: FICHIER
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:77:5: FICHIER
 					{
 					match(input,FICHIER,FOLLOW_FICHIER_in_requete350); 
 
@@ -178,7 +179,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:83:6: NUMERO
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:84:6: NUMERO
 					{
 					match(input,NUMERO,FOLLOW_NUMERO_in_requete362); 
 
@@ -190,7 +191,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:90:5: DATE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:91:5: DATE
 					{
 					match(input,DATE,FOLLOW_DATE_in_requete373); 
 
@@ -204,7 +205,7 @@ public class Tal_sqlParser extends Parser {
 
 			}
 
-			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:97:3: ( TEXTE | DATE )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:98:3: ( TEXTE | DATE )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==TEXTE) ) {
@@ -222,7 +223,7 @@ public class Tal_sqlParser extends Parser {
 
 			switch (alt3) {
 				case 1 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:97:4: TEXTE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:98:4: TEXTE
 					{
 					match(input,TEXTE,FOLLOW_TEXTE_in_requete383); 
 
@@ -232,7 +233,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:102:5: DATE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:103:5: DATE
 					{
 					match(input,DATE,FOLLOW_DATE_in_requete394); 
 
@@ -244,7 +245,7 @@ public class Tal_sqlParser extends Parser {
 
 			}
 
-			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:108:6: (ps= params )?
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:109:6: (ps= params )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==ENTRE||LA4_0==VAR) ) {
@@ -252,7 +253,7 @@ public class Tal_sqlParser extends Parser {
 			}
 			switch (alt4) {
 				case 1 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:108:6: ps= params
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:109:6: ps= params
 					{
 					pushFollow(FOLLOW_params_in_requete411);
 					ps=params();
@@ -296,7 +297,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "params"
-	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:127:1: params returns [Arbre les_pars_arbre = new Arbre(\"\")] : par1= param ( (conj= ET |conj= OU )? par2= param )* ;
+	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:128:1: params returns [Arbre les_pars_arbre = new Arbre(\"\")] : par1= param ( (conj= ET |conj= OU )? par2= param )* ;
 	public final Arbre params() throws RecognitionException {
 		Arbre les_pars_arbre =  new Arbre("");
 
@@ -307,8 +308,8 @@ public class Tal_sqlParser extends Parser {
 
 		Arbre par1_arbre, par2_arbre;
 		try {
-			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:128:40: (par1= param ( (conj= ET |conj= OU )? par2= param )* )
-			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:129:3: par1= param ( (conj= ET |conj= OU )? par2= param )*
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:129:40: (par1= param ( (conj= ET |conj= OU )? par2= param )* )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:130:3: par1= param ( (conj= ET |conj= OU )? par2= param )*
 			{
 			pushFollow(FOLLOW_param_in_params443);
 			par1=param();
@@ -321,7 +322,7 @@ public class Tal_sqlParser extends Parser {
 								les_pars_arbre.incrementIntegerData("param_count");
 							}
 						
-			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:3: ( (conj= ET |conj= OU )? par2= param )*
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:138:3: ( (conj= ET |conj= OU )? par2= param )*
 			loop6:
 			while (true) {
 				int alt6=2;
@@ -332,9 +333,9 @@ public class Tal_sqlParser extends Parser {
 
 				switch (alt6) {
 				case 1 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:4: (conj= ET |conj= OU )? par2= param
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:138:4: (conj= ET |conj= OU )? par2= param
 					{
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:4: (conj= ET |conj= OU )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:138:4: (conj= ET |conj= OU )?
 					int alt5=3;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==ET) ) {
@@ -345,13 +346,13 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt5) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:5: conj= ET
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:138:5: conj= ET
 							{
 							conj=(Token)match(input,ET,FOLLOW_ET_in_params458); 
 							}
 							break;
 						case 2 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:17: conj= OU
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:138:17: conj= OU
 							{
 							conj=(Token)match(input,OU,FOLLOW_OU_in_params466); 
 							}
@@ -402,7 +403,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "param"
-	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:155:1: param returns [Arbre lepar_arbre = new Arbre(\"\")] : ( (a= VAR ) | ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? ) );
+	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:1: param returns [Arbre lepar_arbre = new Arbre(\"\")] : ( (a= VAR ) | ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? ) );
 	public final Arbre param() throws RecognitionException {
 		Arbre lepar_arbre =  new Arbre("");
 
@@ -416,7 +417,7 @@ public class Tal_sqlParser extends Parser {
 		Token a2=null;
 
 		try {
-			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:155:51: ( (a= VAR ) | ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? ) )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:51: ( (a= VAR ) | ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? ) )
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0==VAR) ) {
@@ -434,10 +435,10 @@ public class Tal_sqlParser extends Parser {
 
 			switch (alt13) {
 				case 1 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:2: (a= VAR )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:157:2: (a= VAR )
 					{
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:2: (a= VAR )
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:3: a= VAR
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:157:2: (a= VAR )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:157:3: a= VAR
 					{
 					a=(Token)match(input,VAR,FOLLOW_VAR_in_param503); 
 					 
@@ -450,13 +451,13 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:162:6: ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:163:6: ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? )
 					{
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:162:6: ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? )
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:163:2: ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:163:6: ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:164:2: ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )?
 					{
 					match(input,ENTRE,FOLLOW_ENTRE_in_param517); 
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:164:5: (j1= JOUR )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:165:5: (j1= JOUR )?
 					int alt7=2;
 					int LA7_0 = input.LA(1);
 					if ( (LA7_0==JOUR) ) {
@@ -464,7 +465,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt7) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:164:5: j1= JOUR
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:165:5: j1= JOUR
 							{
 							j1=(Token)match(input,JOUR,FOLLOW_JOUR_in_param524); 
 							}
@@ -472,7 +473,7 @@ public class Tal_sqlParser extends Parser {
 
 					}
 
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:165:5: (m1= MOIS )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:166:5: (m1= MOIS )?
 					int alt8=2;
 					int LA8_0 = input.LA(1);
 					if ( (LA8_0==MOIS) ) {
@@ -480,7 +481,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt8) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:165:5: m1= MOIS
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:166:5: m1= MOIS
 							{
 							m1=(Token)match(input,MOIS,FOLLOW_MOIS_in_param532); 
 							}
@@ -488,7 +489,7 @@ public class Tal_sqlParser extends Parser {
 
 					}
 
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:166:5: (a1= ANNEE )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:167:5: (a1= ANNEE )?
 					int alt9=2;
 					int LA9_0 = input.LA(1);
 					if ( (LA9_0==ANNEE) ) {
@@ -496,7 +497,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt9) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:166:5: a1= ANNEE
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:167:5: a1= ANNEE
 							{
 							a1=(Token)match(input,ANNEE,FOLLOW_ANNEE_in_param540); 
 							}
@@ -505,7 +506,7 @@ public class Tal_sqlParser extends Parser {
 					}
 
 					match(input,ET,FOLLOW_ET_in_param544); 
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:168:5: (j2= JOUR )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:169:5: (j2= JOUR )?
 					int alt10=2;
 					int LA10_0 = input.LA(1);
 					if ( (LA10_0==JOUR) ) {
@@ -513,7 +514,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt10) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:168:5: j2= JOUR
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:169:5: j2= JOUR
 							{
 							j2=(Token)match(input,JOUR,FOLLOW_JOUR_in_param551); 
 							}
@@ -521,7 +522,7 @@ public class Tal_sqlParser extends Parser {
 
 					}
 
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:169:5: (m2= MOIS )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:170:5: (m2= MOIS )?
 					int alt11=2;
 					int LA11_0 = input.LA(1);
 					if ( (LA11_0==MOIS) ) {
@@ -529,7 +530,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt11) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:169:5: m2= MOIS
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:170:5: m2= MOIS
 							{
 							m2=(Token)match(input,MOIS,FOLLOW_MOIS_in_param559); 
 							}
@@ -537,7 +538,7 @@ public class Tal_sqlParser extends Parser {
 
 					}
 
-					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:170:5: (a2= ANNEE )?
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:171:5: (a2= ANNEE )?
 					int alt12=2;
 					int LA12_0 = input.LA(1);
 					if ( (LA12_0==ANNEE) ) {
@@ -545,7 +546,7 @@ public class Tal_sqlParser extends Parser {
 					}
 					switch (alt12) {
 						case 1 :
-							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:170:5: a2= ANNEE
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:171:5: a2= ANNEE
 							{
 							a2=(Token)match(input,ANNEE,FOLLOW_ANNEE_in_param567); 
 							}

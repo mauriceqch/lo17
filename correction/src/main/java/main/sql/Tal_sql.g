@@ -69,8 +69,9 @@ requete returns [Arbre req_arbre = new Arbre("")]
 			} 
 		(NOMBRE
 			{
-			String columns = "count(distinct texte.fichier)";
-			req_arbre.ajouteFils(new Arbre("",columns));
+			String columns = "";
+			String displayColumns = "count(distinct texte.fichier)" + columns;
+			req_arbre.ajouteFils(new Arbre("", displayColumns));
 			req_arbre.setStringData("columns", columns);
 			}
 		| FICHIER

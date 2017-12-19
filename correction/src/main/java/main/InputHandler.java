@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -32,10 +33,12 @@ public class InputHandler {
 		Integer paramCount = arbre.getIntegerData("param_count");
 		Boolean intersection = arbre.getBooleanData("intersection");
 		
-		if (Boolean.TRUE.equals(intersection)) {
-			query = query + "group by " + columns + " having count(distinct mot) >= " + paramCount;
-		} else {
-			query = query + "group by " + columns;
+		if (!Strings.isNullOrEmpty(columns)) {
+			if (Boolean.TRUE.equals(intersection)) {
+				query = query + "group by " + columns + " having count(distinct mot) >= " + paramCount;
+			} else {
+				query = query + "group by " + columns;
+			}
 		}
 		
 		query = query + " order by count(mot) desc";
