@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-12 15:56:16
+// $ANTLR 3.5.1 /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-19 01:41:42
 
     package main.sql.output;
     import main.sql.data.Arbre;
@@ -12,18 +12,23 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class Tal_sqlLexer extends Lexer {
 	public static final int EOF=-1;
-	public static final int CHAR=4;
-	public static final int CONJ=5;
+	public static final int ANNEE=4;
+	public static final int CHAR=5;
 	public static final int COUNT=6;
 	public static final int DATE=7;
-	public static final int FICHIER=8;
-	public static final int NOMBRE=9;
-	public static final int NUMERO=10;
-	public static final int POINT=11;
-	public static final int SELECT=12;
-	public static final int TEXTE=13;
-	public static final int VAR=14;
-	public static final int WS=15;
+	public static final int ENTRE=8;
+	public static final int ET=9;
+	public static final int FICHIER=10;
+	public static final int JOUR=11;
+	public static final int MOIS=12;
+	public static final int NOMBRE=13;
+	public static final int NUMERO=14;
+	public static final int OU=15;
+	public static final int POINT=16;
+	public static final int SELECT=17;
+	public static final int TEXTE=18;
+	public static final int VAR=19;
+	public static final int WS=20;
 
 	// delegates
 	// delegators
@@ -38,15 +43,15 @@ public class Tal_sqlLexer extends Lexer {
 	public Tal_sqlLexer(CharStream input, RecognizerSharedState state) {
 		super(input,state);
 	}
-	@Override public String getGrammarFileName() { return "/home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g"; }
+	@Override public String getGrammarFileName() { return "/home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g"; }
 
 	// $ANTLR start "SELECT"
 	public final void mSELECT() throws RecognitionException {
 		try {
 			int _type = SELECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:13:8: ( 'SELECT' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:13:10: 'SELECT'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:15:8: ( 'SELECT' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:15:10: 'SELECT'
 			{
 			match("SELECT"); 
 
@@ -66,8 +71,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = COUNT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:16:8: ( 'COUNT' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:16:10: 'COUNT'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:18:8: ( 'COUNT' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:18:10: 'COUNT'
 			{
 			match("COUNT"); 
 
@@ -87,8 +92,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = FICHIER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:19:9: ( 'FICHIER' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:19:11: 'FICHIER'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:21:9: ( 'FICHIER' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:21:11: 'FICHIER'
 			{
 			match("FICHIER"); 
 
@@ -108,8 +113,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = NUMERO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:22:8: ( 'NUMERO' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:22:10: 'NUMERO'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:24:8: ( 'NUMERO' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:24:10: 'NUMERO'
 			{
 			match("NUMERO"); 
 
@@ -129,8 +134,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = NOMBRE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:25:8: ( 'NOMBRE' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:25:10: 'NOMBRE'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:27:8: ( 'NOMBRE' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:27:10: 'NOMBRE'
 			{
 			match("NOMBRE"); 
 
@@ -145,39 +150,276 @@ public class Tal_sqlLexer extends Lexer {
 	}
 	// $ANTLR end "NOMBRE"
 
-	// $ANTLR start "CONJ"
-	public final void mCONJ() throws RecognitionException {
+	// $ANTLR start "ENTRE"
+	public final void mENTRE() throws RecognitionException {
 		try {
-			int _type = CONJ;
+			int _type = ENTRE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:28:6: ( 'ET' | 'OU' )
-			int alt1=2;
-			int LA1_0 = input.LA(1);
-			if ( (LA1_0=='E') ) {
-				alt1=1;
-			}
-			else if ( (LA1_0=='O') ) {
-				alt1=2;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:30:7: ( 'ENTRE' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:30:9: 'ENTRE'
+			{
+			match("ENTRE"); 
+
 			}
 
-			else {
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "ENTRE"
+
+	// $ANTLR start "MOIS"
+	public final void mMOIS() throws RecognitionException {
+		try {
+			int _type = MOIS;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:6: ( 'JANVIER' | 'FEVRIER' | 'MARS' | 'AVRIL' | 'MAI' | 'JUIN' | 'JUILLET' | 'AOUT' | 'SEPTEMBRE' | 'OCTOBRE' | 'NOVEMBRE' | 'DECEMBRE' )
+			int alt1=12;
+			switch ( input.LA(1) ) {
+			case 'J':
+				{
+				int LA1_1 = input.LA(2);
+				if ( (LA1_1=='A') ) {
+					alt1=1;
+				}
+				else if ( (LA1_1=='U') ) {
+					int LA1_10 = input.LA(3);
+					if ( (LA1_10=='I') ) {
+						int LA1_14 = input.LA(4);
+						if ( (LA1_14=='N') ) {
+							alt1=6;
+						}
+						else if ( (LA1_14=='L') ) {
+							alt1=7;
+						}
+
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+									input.consume();
+								}
+								NoViableAltException nvae =
+									new NoViableAltException("", 1, 14, input);
+								throw nvae;
+							} finally {
+								input.rewind(nvaeMark);
+							}
+						}
+
+					}
+
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 1, 10, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 1, 1, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+				}
+				break;
+			case 'F':
+				{
+				alt1=2;
+				}
+				break;
+			case 'M':
+				{
+				int LA1_3 = input.LA(2);
+				if ( (LA1_3=='A') ) {
+					int LA1_11 = input.LA(3);
+					if ( (LA1_11=='R') ) {
+						alt1=3;
+					}
+					else if ( (LA1_11=='I') ) {
+						alt1=5;
+					}
+
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 1, 11, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 1, 3, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+				}
+				break;
+			case 'A':
+				{
+				int LA1_4 = input.LA(2);
+				if ( (LA1_4=='V') ) {
+					alt1=4;
+				}
+				else if ( (LA1_4=='O') ) {
+					alt1=8;
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 1, 4, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+				}
+				break;
+			case 'S':
+				{
+				alt1=9;
+				}
+				break;
+			case 'O':
+				{
+				alt1=10;
+				}
+				break;
+			case 'N':
+				{
+				alt1=11;
+				}
+				break;
+			case 'D':
+				{
+				alt1=12;
+				}
+				break;
+			default:
 				NoViableAltException nvae =
 					new NoViableAltException("", 1, 0, input);
 				throw nvae;
 			}
-
 			switch (alt1) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:28:8: 'ET'
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:8: 'JANVIER'
 					{
-					match("ET"); 
+					match("JANVIER"); 
 
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:28:15: 'OU'
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:20: 'FEVRIER'
 					{
-					match("OU"); 
+					match("FEVRIER"); 
+
+					}
+					break;
+				case 3 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:32: 'MARS'
+					{
+					match("MARS"); 
+
+					}
+					break;
+				case 4 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:41: 'AVRIL'
+					{
+					match("AVRIL"); 
+
+					}
+					break;
+				case 5 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:51: 'MAI'
+					{
+					match("MAI"); 
+
+					}
+					break;
+				case 6 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:59: 'JUIN'
+					{
+					match("JUIN"); 
+
+					}
+					break;
+				case 7 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:1: 'JUILLET'
+					{
+					match("JUILLET"); 
+
+					}
+					break;
+				case 8 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:13: 'AOUT'
+					{
+					match("AOUT"); 
+
+					}
+					break;
+				case 9 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:22: 'SEPTEMBRE'
+					{
+					match("SEPTEMBRE"); 
+
+					}
+					break;
+				case 10 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:36: 'OCTOBRE'
+					{
+					match("OCTOBRE"); 
+
+					}
+					break;
+				case 11 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:48: 'NOVEMBRE'
+					{
+					match("NOVEMBRE"); 
+
+					}
+					break;
+				case 12 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:32:61: 'DECEMBRE'
+					{
+					match("DECEMBRE"); 
 
 					}
 					break;
@@ -190,15 +432,158 @@ public class Tal_sqlLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "CONJ"
+	// $ANTLR end "MOIS"
+
+	// $ANTLR start "ANNEE"
+	public final void mANNEE() throws RecognitionException {
+		try {
+			int _type = ANNEE;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:33:8: ( ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:33:10: ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' ) ( '0' .. '9' )
+			{
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "ANNEE"
+
+	// $ANTLR start "JOUR"
+	public final void mJOUR() throws RecognitionException {
+		try {
+			int _type = JOUR;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:7: ( ( '0' .. '9' ) ( '0' .. '9' )? )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:9: ( '0' .. '9' ) ( '0' .. '9' )?
+			{
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:19: ( '0' .. '9' )?
+			int alt2=2;
+			int LA2_0 = input.LA(1);
+			if ( ((LA2_0 >= '0' && LA2_0 <= '9')) ) {
+				alt2=1;
+			}
+			switch (alt2) {
+				case 1 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:
+					{
+					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+
+			}
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "JOUR"
+
+	// $ANTLR start "ET"
+	public final void mET() throws RecognitionException {
+		try {
+			int _type = ET;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:36:4: ( 'ET' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:36:7: 'ET'
+			{
+			match("ET"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "ET"
+
+	// $ANTLR start "OU"
+	public final void mOU() throws RecognitionException {
+		try {
+			int _type = OU;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:37:5: ( 'OU' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:37:7: 'OU'
+			{
+			match("OU"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "OU"
 
 	// $ANTLR start "POINT"
 	public final void mPOINT() throws RecognitionException {
 		try {
 			int _type = POINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:7: ( '.' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:31:9: '.'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:39:7: ( '.' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:39:9: '.'
 			{
 			match('.'); 
 			}
@@ -217,8 +602,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = TEXTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:7: ( 'TEXTE' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:34:9: 'TEXTE'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:42:7: ( 'TEXTE' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:42:9: 'TEXTE'
 			{
 			match("TEXTE"); 
 
@@ -238,8 +623,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:37:6: ( 'DATE' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:37:8: 'DATE'
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:45:6: ( 'DATE' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:45:8: 'DATE'
 			{
 			match("DATE"); 
 
@@ -259,8 +644,8 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = CHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:40:7: ( 'Â' .. 'ü' | 'a' .. 'z' | 'A' .. 'Z' )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:48:7: ( 'Â' .. 'ü' | 'a' .. 'z' | 'A' .. 'Z' )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||(input.LA(1) >= '\u00C2' && input.LA(1) <= '\u00FC') ) {
 				input.consume();
@@ -286,22 +671,22 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = VAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:43:6: ( ( CHAR | '0' .. '9' )+ )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:43:8: ( CHAR | '0' .. '9' )+
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:51:6: ( ( CHAR | '0' .. '9' )+ )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:51:8: ( CHAR | '0' .. '9' )+
 			{
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:43:8: ( CHAR | '0' .. '9' )+
-			int cnt2=0;
-			loop2:
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:51:8: ( CHAR | '0' .. '9' )+
+			int cnt3=0;
+			loop3:
 			while (true) {
-				int alt2=2;
-				int LA2_0 = input.LA(1);
-				if ( ((LA2_0 >= '0' && LA2_0 <= '9')||(LA2_0 >= 'A' && LA2_0 <= 'Z')||(LA2_0 >= 'a' && LA2_0 <= 'z')||(LA2_0 >= '\u00C2' && LA2_0 <= '\u00FC')) ) {
-					alt2=1;
+				int alt3=2;
+				int LA3_0 = input.LA(1);
+				if ( ((LA3_0 >= '0' && LA3_0 <= '9')||(LA3_0 >= 'A' && LA3_0 <= 'Z')||(LA3_0 >= 'a' && LA3_0 <= 'z')||(LA3_0 >= '\u00C2' && LA3_0 <= '\u00FC')) ) {
+					alt3=1;
 				}
 
-				switch (alt2) {
+				switch (alt3) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||(input.LA(1) >= '\u00C2' && input.LA(1) <= '\u00FC') ) {
 						input.consume();
@@ -315,11 +700,11 @@ public class Tal_sqlLexer extends Lexer {
 					break;
 
 				default :
-					if ( cnt2 >= 1 ) break loop2;
-					EarlyExitException eee = new EarlyExitException(2, input);
+					if ( cnt3 >= 1 ) break loop3;
+					EarlyExitException eee = new EarlyExitException(3, input);
 					throw eee;
 				}
-				cnt2++;
+				cnt3++;
 			}
 
 			}
@@ -338,25 +723,25 @@ public class Tal_sqlLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:46:5: ( ( ' ' | '\\t' | '\\r' ) | '\\n' )
-			int alt3=2;
-			int LA3_0 = input.LA(1);
-			if ( (LA3_0=='\t'||LA3_0=='\r'||LA3_0==' ') ) {
-				alt3=1;
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:54:5: ( ( ' ' | '\\t' | '\\r' ) | '\\n' )
+			int alt4=2;
+			int LA4_0 = input.LA(1);
+			if ( (LA4_0=='\t'||LA4_0=='\r'||LA4_0==' ') ) {
+				alt4=1;
 			}
-			else if ( (LA3_0=='\n') ) {
-				alt3=2;
+			else if ( (LA4_0=='\n') ) {
+				alt4=2;
 			}
 
 			else {
 				NoViableAltException nvae =
-					new NoViableAltException("", 3, 0, input);
+					new NoViableAltException("", 4, 0, input);
 				throw nvae;
 			}
 
-			switch (alt3) {
+			switch (alt4) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:46:7: ( ' ' | '\\t' | '\\r' )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:54:7: ( ' ' | '\\t' | '\\r' )
 					{
 					if ( input.LA(1)=='\t'||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 						input.consume();
@@ -370,7 +755,7 @@ public class Tal_sqlLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:46:38: '\\n'
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:54:38: '\\n'
 					{
 					match('\n'); 
 					}
@@ -388,1608 +773,124 @@ public class Tal_sqlLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:8: ( SELECT | COUNT | FICHIER | NUMERO | NOMBRE | CONJ | POINT | TEXTE | DATE | CHAR | VAR | WS )
-		int alt4=12;
-		switch ( input.LA(1) ) {
-		case 'S':
-			{
-			switch ( input.LA(2) ) {
-			case 'E':
-				{
-				int LA4_13 = input.LA(3);
-				if ( (LA4_13=='L') ) {
-					int LA4_23 = input.LA(4);
-					if ( (LA4_23=='E') ) {
-						int LA4_31 = input.LA(5);
-						if ( (LA4_31=='C') ) {
-							int LA4_38 = input.LA(6);
-							if ( (LA4_38=='T') ) {
-								int LA4_45 = input.LA(7);
-								if ( ((LA4_45 >= '0' && LA4_45 <= '9')||(LA4_45 >= 'A' && LA4_45 <= 'Z')||(LA4_45 >= 'a' && LA4_45 <= 'z')||(LA4_45 >= '\u00C2' && LA4_45 <= '\u00FC')) ) {
-									alt4=11;
-								}
-
-								else {
-									alt4=1;
-								}
-
-							}
-
-							else {
-								alt4=11;
-							}
-
-						}
-
-						else {
-							alt4=11;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'O':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'U':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'C':
-			{
-			switch ( input.LA(2) ) {
-			case 'O':
-				{
-				int LA4_15 = input.LA(3);
-				if ( (LA4_15=='U') ) {
-					int LA4_24 = input.LA(4);
-					if ( (LA4_24=='N') ) {
-						int LA4_32 = input.LA(5);
-						if ( (LA4_32=='T') ) {
-							int LA4_39 = input.LA(6);
-							if ( ((LA4_39 >= '0' && LA4_39 <= '9')||(LA4_39 >= 'A' && LA4_39 <= 'Z')||(LA4_39 >= 'a' && LA4_39 <= 'z')||(LA4_39 >= '\u00C2' && LA4_39 <= '\u00FC')) ) {
-								alt4=11;
-							}
-
-							else {
-								alt4=2;
-							}
-
-						}
-
-						else {
-							alt4=11;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'E':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'U':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'F':
-			{
-			switch ( input.LA(2) ) {
-			case 'I':
-				{
-				int LA4_16 = input.LA(3);
-				if ( (LA4_16=='C') ) {
-					int LA4_25 = input.LA(4);
-					if ( (LA4_25=='H') ) {
-						int LA4_33 = input.LA(5);
-						if ( (LA4_33=='I') ) {
-							int LA4_40 = input.LA(6);
-							if ( (LA4_40=='E') ) {
-								int LA4_47 = input.LA(7);
-								if ( (LA4_47=='R') ) {
-									int LA4_52 = input.LA(8);
-									if ( ((LA4_52 >= '0' && LA4_52 <= '9')||(LA4_52 >= 'A' && LA4_52 <= 'Z')||(LA4_52 >= 'a' && LA4_52 <= 'z')||(LA4_52 >= '\u00C2' && LA4_52 <= '\u00FC')) ) {
-										alt4=11;
-									}
-
-									else {
-										alt4=3;
-									}
-
-								}
-
-								else {
-									alt4=11;
-								}
-
-							}
-
-							else {
-								alt4=11;
-							}
-
-						}
-
-						else {
-							alt4=11;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'E':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'O':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'U':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'N':
-			{
-			switch ( input.LA(2) ) {
-			case 'U':
-				{
-				int LA4_17 = input.LA(3);
-				if ( (LA4_17=='M') ) {
-					int LA4_26 = input.LA(4);
-					if ( (LA4_26=='E') ) {
-						int LA4_34 = input.LA(5);
-						if ( (LA4_34=='R') ) {
-							int LA4_41 = input.LA(6);
-							if ( (LA4_41=='O') ) {
-								int LA4_48 = input.LA(7);
-								if ( ((LA4_48 >= '0' && LA4_48 <= '9')||(LA4_48 >= 'A' && LA4_48 <= 'Z')||(LA4_48 >= 'a' && LA4_48 <= 'z')||(LA4_48 >= '\u00C2' && LA4_48 <= '\u00FC')) ) {
-									alt4=11;
-								}
-
-								else {
-									alt4=4;
-								}
-
-							}
-
-							else {
-								alt4=11;
-							}
-
-						}
-
-						else {
-							alt4=11;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case 'O':
-				{
-				int LA4_18 = input.LA(3);
-				if ( (LA4_18=='M') ) {
-					int LA4_27 = input.LA(4);
-					if ( (LA4_27=='B') ) {
-						int LA4_35 = input.LA(5);
-						if ( (LA4_35=='R') ) {
-							int LA4_42 = input.LA(6);
-							if ( (LA4_42=='E') ) {
-								int LA4_49 = input.LA(7);
-								if ( ((LA4_49 >= '0' && LA4_49 <= '9')||(LA4_49 >= 'A' && LA4_49 <= 'Z')||(LA4_49 >= 'a' && LA4_49 <= 'z')||(LA4_49 >= '\u00C2' && LA4_49 <= '\u00FC')) ) {
-									alt4=11;
-								}
-
-								else {
-									alt4=5;
-								}
-
-							}
-
-							else {
-								alt4=11;
-							}
-
-						}
-
-						else {
-							alt4=11;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'E':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'E':
-			{
-			switch ( input.LA(2) ) {
-			case 'T':
-				{
-				int LA4_19 = input.LA(3);
-				if ( ((LA4_19 >= '0' && LA4_19 <= '9')||(LA4_19 >= 'A' && LA4_19 <= 'Z')||(LA4_19 >= 'a' && LA4_19 <= 'z')||(LA4_19 >= '\u00C2' && LA4_19 <= '\u00FC')) ) {
-					alt4=11;
-				}
-
-				else {
-					alt4=6;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'E':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'O':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'U':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'O':
-			{
-			switch ( input.LA(2) ) {
-			case 'U':
-				{
-				int LA4_20 = input.LA(3);
-				if ( ((LA4_20 >= '0' && LA4_20 <= '9')||(LA4_20 >= 'A' && LA4_20 <= 'Z')||(LA4_20 >= 'a' && LA4_20 <= 'z')||(LA4_20 >= '\u00C2' && LA4_20 <= '\u00FC')) ) {
-					alt4=11;
-				}
-
-				else {
-					alt4=6;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'E':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'O':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case '.':
-			{
-			alt4=7;
-			}
-			break;
-		case 'T':
-			{
-			switch ( input.LA(2) ) {
-			case 'E':
-				{
-				int LA4_21 = input.LA(3);
-				if ( (LA4_21=='X') ) {
-					int LA4_29 = input.LA(4);
-					if ( (LA4_29=='T') ) {
-						int LA4_36 = input.LA(5);
-						if ( (LA4_36=='E') ) {
-							int LA4_43 = input.LA(6);
-							if ( ((LA4_43 >= '0' && LA4_43 <= '9')||(LA4_43 >= 'A' && LA4_43 <= 'Z')||(LA4_43 >= 'a' && LA4_43 <= 'z')||(LA4_43 >= '\u00C2' && LA4_43 <= '\u00FC')) ) {
-								alt4=11;
-							}
-
-							else {
-								alt4=8;
-							}
-
-						}
-
-						else {
-							alt4=11;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'A':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'O':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'U':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'D':
-			{
-			switch ( input.LA(2) ) {
-			case 'A':
-				{
-				int LA4_22 = input.LA(3);
-				if ( (LA4_22=='T') ) {
-					int LA4_30 = input.LA(4);
-					if ( (LA4_30=='E') ) {
-						int LA4_37 = input.LA(5);
-						if ( ((LA4_37 >= '0' && LA4_37 <= '9')||(LA4_37 >= 'A' && LA4_37 <= 'Z')||(LA4_37 >= 'a' && LA4_37 <= 'z')||(LA4_37 >= '\u00C2' && LA4_37 <= '\u00FC')) ) {
-							alt4=11;
-						}
-
-						else {
-							alt4=9;
-						}
-
-					}
-
-					else {
-						alt4=11;
-					}
-
-				}
-
-				else {
-					alt4=11;
-				}
-
-				}
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'E':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'I':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'O':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'U':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Y':
-			case 'Z':
-			case 'a':
-			case 'b':
-			case 'c':
-			case 'd':
-			case 'e':
-			case 'f':
-			case 'g':
-			case 'h':
-			case 'i':
-			case 'j':
-			case 'k':
-			case 'l':
-			case 'm':
-			case 'n':
-			case 'o':
-			case 'p':
-			case 'q':
-			case 'r':
-			case 's':
-			case 't':
-			case 'u':
-			case 'v':
-			case 'w':
-			case 'x':
-			case 'y':
-			case 'z':
-			case '\u00C2':
-			case '\u00C3':
-			case '\u00C4':
-			case '\u00C5':
-			case '\u00C6':
-			case '\u00C7':
-			case '\u00C8':
-			case '\u00C9':
-			case '\u00CA':
-			case '\u00CB':
-			case '\u00CC':
-			case '\u00CD':
-			case '\u00CE':
-			case '\u00CF':
-			case '\u00D0':
-			case '\u00D1':
-			case '\u00D2':
-			case '\u00D3':
-			case '\u00D4':
-			case '\u00D5':
-			case '\u00D6':
-			case '\u00D7':
-			case '\u00D8':
-			case '\u00D9':
-			case '\u00DA':
-			case '\u00DB':
-			case '\u00DC':
-			case '\u00DD':
-			case '\u00DE':
-			case '\u00DF':
-			case '\u00E0':
-			case '\u00E1':
-			case '\u00E2':
-			case '\u00E3':
-			case '\u00E4':
-			case '\u00E5':
-			case '\u00E6':
-			case '\u00E7':
-			case '\u00E8':
-			case '\u00E9':
-			case '\u00EA':
-			case '\u00EB':
-			case '\u00EC':
-			case '\u00ED':
-			case '\u00EE':
-			case '\u00EF':
-			case '\u00F0':
-			case '\u00F1':
-			case '\u00F2':
-			case '\u00F3':
-			case '\u00F4':
-			case '\u00F5':
-			case '\u00F6':
-			case '\u00F7':
-			case '\u00F8':
-			case '\u00F9':
-			case '\u00FA':
-			case '\u00FB':
-			case '\u00FC':
-				{
-				alt4=11;
-				}
-				break;
-			default:
-				alt4=10;
-			}
-			}
-			break;
-		case 'A':
-		case 'B':
-		case 'G':
-		case 'H':
-		case 'I':
-		case 'J':
-		case 'K':
-		case 'L':
-		case 'M':
-		case 'P':
-		case 'Q':
-		case 'R':
-		case 'U':
-		case 'V':
-		case 'W':
-		case 'X':
-		case 'Y':
-		case 'Z':
-		case 'a':
-		case 'b':
-		case 'c':
-		case 'd':
-		case 'e':
-		case 'f':
-		case 'g':
-		case 'h':
-		case 'i':
-		case 'j':
-		case 'k':
-		case 'l':
-		case 'm':
-		case 'n':
-		case 'o':
-		case 'p':
-		case 'q':
-		case 'r':
-		case 's':
-		case 't':
-		case 'u':
-		case 'v':
-		case 'w':
-		case 'x':
-		case 'y':
-		case 'z':
-		case '\u00C2':
-		case '\u00C3':
-		case '\u00C4':
-		case '\u00C5':
-		case '\u00C6':
-		case '\u00C7':
-		case '\u00C8':
-		case '\u00C9':
-		case '\u00CA':
-		case '\u00CB':
-		case '\u00CC':
-		case '\u00CD':
-		case '\u00CE':
-		case '\u00CF':
-		case '\u00D0':
-		case '\u00D1':
-		case '\u00D2':
-		case '\u00D3':
-		case '\u00D4':
-		case '\u00D5':
-		case '\u00D6':
-		case '\u00D7':
-		case '\u00D8':
-		case '\u00D9':
-		case '\u00DA':
-		case '\u00DB':
-		case '\u00DC':
-		case '\u00DD':
-		case '\u00DE':
-		case '\u00DF':
-		case '\u00E0':
-		case '\u00E1':
-		case '\u00E2':
-		case '\u00E3':
-		case '\u00E4':
-		case '\u00E5':
-		case '\u00E6':
-		case '\u00E7':
-		case '\u00E8':
-		case '\u00E9':
-		case '\u00EA':
-		case '\u00EB':
-		case '\u00EC':
-		case '\u00ED':
-		case '\u00EE':
-		case '\u00EF':
-		case '\u00F0':
-		case '\u00F1':
-		case '\u00F2':
-		case '\u00F3':
-		case '\u00F4':
-		case '\u00F5':
-		case '\u00F6':
-		case '\u00F7':
-		case '\u00F8':
-		case '\u00F9':
-		case '\u00FA':
-		case '\u00FB':
-		case '\u00FC':
-			{
-			int LA4_10 = input.LA(2);
-			if ( ((LA4_10 >= '0' && LA4_10 <= '9')||(LA4_10 >= 'A' && LA4_10 <= 'Z')||(LA4_10 >= 'a' && LA4_10 <= 'z')||(LA4_10 >= '\u00C2' && LA4_10 <= '\u00FC')) ) {
-				alt4=11;
-			}
-
-			else {
-				alt4=10;
-			}
-
-			}
-			break;
-		case '0':
-		case '1':
-		case '2':
-		case '3':
-		case '4':
-		case '5':
-		case '6':
-		case '7':
-		case '8':
-		case '9':
-			{
-			alt4=11;
-			}
-			break;
-		case '\t':
-		case '\n':
-		case '\r':
-		case ' ':
-			{
-			alt4=12;
-			}
-			break;
-		default:
-			NoViableAltException nvae =
-				new NoViableAltException("", 4, 0, input);
-			throw nvae;
-		}
-		switch (alt4) {
+		// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:8: ( SELECT | COUNT | FICHIER | NUMERO | NOMBRE | ENTRE | MOIS | ANNEE | JOUR | ET | OU | POINT | TEXTE | DATE | CHAR | VAR | WS )
+		int alt5=17;
+		alt5 = dfa5.predict(input);
+		switch (alt5) {
 			case 1 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:10: SELECT
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:10: SELECT
 				{
 				mSELECT(); 
 
 				}
 				break;
 			case 2 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:17: COUNT
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:17: COUNT
 				{
 				mCOUNT(); 
 
 				}
 				break;
 			case 3 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:23: FICHIER
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:23: FICHIER
 				{
 				mFICHIER(); 
 
 				}
 				break;
 			case 4 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:31: NUMERO
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:31: NUMERO
 				{
 				mNUMERO(); 
 
 				}
 				break;
 			case 5 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:38: NOMBRE
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:38: NOMBRE
 				{
 				mNOMBRE(); 
 
 				}
 				break;
 			case 6 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:45: CONJ
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:45: ENTRE
 				{
-				mCONJ(); 
+				mENTRE(); 
 
 				}
 				break;
 			case 7 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:50: POINT
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:51: MOIS
+				{
+				mMOIS(); 
+
+				}
+				break;
+			case 8 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:56: ANNEE
+				{
+				mANNEE(); 
+
+				}
+				break;
+			case 9 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:62: JOUR
+				{
+				mJOUR(); 
+
+				}
+				break;
+			case 10 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:67: ET
+				{
+				mET(); 
+
+				}
+				break;
+			case 11 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:70: OU
+				{
+				mOU(); 
+
+				}
+				break;
+			case 12 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:73: POINT
 				{
 				mPOINT(); 
 
 				}
 				break;
-			case 8 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:56: TEXTE
+			case 13 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:79: TEXTE
 				{
 				mTEXTE(); 
 
 				}
 				break;
-			case 9 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:62: DATE
+			case 14 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:85: DATE
 				{
 				mDATE(); 
 
 				}
 				break;
-			case 10 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:67: CHAR
+			case 15 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:90: CHAR
 				{
 				mCHAR(); 
 
 				}
 				break;
-			case 11 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:72: VAR
+			case 16 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:95: VAR
 				{
 				mVAR(); 
 
 				}
 				break;
-			case 12 :
-				// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:76: WS
+			case 17 :
+				// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:1:99: WS
 				{
 				mWS(); 
 
@@ -2000,5 +901,213 @@ public class Tal_sqlLexer extends Lexer {
 	}
 
 
+	protected DFA5 dfa5 = new DFA5(this);
+	static final String DFA5_eotS =
+		"\1\uffff\12\21\1\44\1\uffff\2\21\1\uffff\1\22\2\uffff\6\22\1\57\6\22\1"+
+		"\67\2\22\1\44\1\uffff\12\22\1\uffff\3\22\1\111\3\22\1\uffff\16\22\1\111"+
+		"\1\22\1\111\1\uffff\1\22\1\111\2\22\1\137\1\140\3\22\1\144\5\22\1\152"+
+		"\2\22\1\111\2\22\2\uffff\1\157\1\160\1\22\1\uffff\2\22\1\164\1\165\1\22"+
+		"\1\uffff\4\22\2\uffff\1\22\1\174\1\111\2\uffff\1\22\3\111\2\22\1\uffff"+
+		"\3\111";
+	static final String DFA5_eofS =
+		"\u0080\uffff";
+	static final String DFA5_minS =
+		"\1\11\13\60\1\uffff\2\60\1\uffff\1\114\2\uffff\1\125\1\103\1\126\2\115"+
+		"\1\124\1\60\1\116\2\111\1\122\1\125\1\124\1\60\1\103\1\124\1\60\1\uffff"+
+		"\1\130\1\105\1\124\1\116\1\110\1\122\1\105\1\102\1\105\1\122\1\uffff\1"+
+		"\126\1\114\1\123\1\60\1\111\1\124\1\117\1\uffff\2\105\1\60\1\124\1\103"+
+		"\1\105\1\124\2\111\2\122\1\115\1\105\1\111\1\60\1\114\1\60\1\uffff\1\114"+
+		"\1\60\1\102\1\115\2\60\1\105\1\124\1\115\1\60\2\105\1\117\1\105\1\102"+
+		"\1\60\2\105\1\60\1\122\1\102\2\uffff\2\60\1\102\1\uffff\2\122\2\60\1\122"+
+		"\1\uffff\1\122\1\124\1\105\1\122\2\uffff\1\122\2\60\2\uffff\1\105\3\60"+
+		"\2\105\1\uffff\3\60";
+	static final String DFA5_maxS =
+		"\14\u00fc\1\uffff\2\u00fc\1\uffff\1\120\2\uffff\1\125\1\103\1\126\1\115"+
+		"\1\126\1\124\1\u00fc\1\116\1\111\2\122\1\125\1\124\1\u00fc\1\103\1\124"+
+		"\1\u00fc\1\uffff\1\130\1\105\1\124\1\116\1\110\1\122\1\105\1\102\1\105"+
+		"\1\122\1\uffff\1\126\1\116\1\123\1\u00fc\1\111\1\124\1\117\1\uffff\2\105"+
+		"\1\71\1\124\1\103\1\105\1\124\2\111\2\122\1\115\1\105\1\111\1\u00fc\1"+
+		"\114\1\u00fc\1\uffff\1\114\1\u00fc\1\102\1\115\2\u00fc\1\105\1\124\1\115"+
+		"\1\u00fc\2\105\1\117\1\105\1\102\1\u00fc\2\105\1\u00fc\1\122\1\102\2\uffff"+
+		"\2\u00fc\1\102\1\uffff\2\122\2\u00fc\1\122\1\uffff\1\122\1\124\1\105\1"+
+		"\122\2\uffff\1\122\2\u00fc\2\uffff\1\105\3\u00fc\2\105\1\uffff\3\u00fc";
+	static final String DFA5_acceptS =
+		"\14\uffff\1\14\2\uffff\1\21\1\uffff\1\17\1\20\21\uffff\1\11\12\uffff\1"+
+		"\12\7\uffff\1\13\21\uffff\1\7\25\uffff\1\16\1\10\3\uffff\1\2\5\uffff\1"+
+		"\6\4\uffff\1\15\1\1\3\uffff\1\4\1\5\6\uffff\1\3\3\uffff";
+	static final String DFA5_specialS =
+		"\u0080\uffff}>";
+	static final String[] DFA5_transitionS = {
+			"\2\17\2\uffff\1\17\22\uffff\1\17\15\uffff\1\14\1\uffff\12\13\7\uffff"+
+			"\1\10\1\16\1\2\1\12\1\5\1\3\3\16\1\6\2\16\1\7\1\4\1\11\3\16\1\1\1\15"+
+			"\6\16\6\uffff\32\16\107\uffff\73\16",
+			"\12\22\7\uffff\4\22\1\20\25\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\16\22\1\23\13\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\4\22\1\25\3\22\1\24\21\22\6\uffff\32\22\107\uffff\73"+
+			"\22",
+			"\12\22\7\uffff\16\22\1\27\5\22\1\26\5\22\6\uffff\32\22\107\uffff\73"+
+			"\22",
+			"\12\22\7\uffff\15\22\1\30\5\22\1\31\6\22\6\uffff\32\22\107\uffff\73"+
+			"\22",
+			"\12\22\7\uffff\1\32\23\22\1\33\5\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\1\34\31\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\16\22\1\36\6\22\1\35\4\22\6\uffff\32\22\107\uffff\73"+
+			"\22",
+			"\12\22\7\uffff\2\22\1\37\21\22\1\40\5\22\6\uffff\32\22\107\uffff\73"+
+			"\22",
+			"\12\22\7\uffff\1\42\3\22\1\41\25\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\43\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"",
+			"\12\22\7\uffff\4\22\1\45\25\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"",
+			"\1\46\3\uffff\1\47",
+			"",
+			"",
+			"\1\50",
+			"\1\51",
+			"\1\52",
+			"\1\53",
+			"\1\54\10\uffff\1\55",
+			"\1\56",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\60",
+			"\1\61",
+			"\1\63\10\uffff\1\62",
+			"\1\64",
+			"\1\65",
+			"\1\66",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\70",
+			"\1\71",
+			"\12\72\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"",
+			"\1\73",
+			"\1\74",
+			"\1\75",
+			"\1\76",
+			"\1\77",
+			"\1\100",
+			"\1\101",
+			"\1\102",
+			"\1\103",
+			"\1\104",
+			"",
+			"\1\105",
+			"\1\107\1\uffff\1\106",
+			"\1\110",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\112",
+			"\1\113",
+			"\1\114",
+			"",
+			"\1\115",
+			"\1\116",
+			"\12\117",
+			"\1\120",
+			"\1\121",
+			"\1\122",
+			"\1\123",
+			"\1\124",
+			"\1\125",
+			"\1\126",
+			"\1\127",
+			"\1\130",
+			"\1\131",
+			"\1\132",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\133",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"",
+			"\1\134",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\135",
+			"\1\136",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\141",
+			"\1\142",
+			"\1\143",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\145",
+			"\1\146",
+			"\1\147",
+			"\1\150",
+			"\1\151",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\153",
+			"\1\154",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\155",
+			"\1\156",
+			"",
+			"",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\161",
+			"",
+			"\1\162",
+			"\1\163",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\166",
+			"",
+			"\1\167",
+			"\1\170",
+			"\1\171",
+			"\1\172",
+			"",
+			"",
+			"\1\173",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"",
+			"",
+			"\1\175",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\1\176",
+			"\1\177",
+			"",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22",
+			"\12\22\7\uffff\32\22\6\uffff\32\22\107\uffff\73\22"
+	};
+
+	static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
+	static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
+	static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
+	static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
+	static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
+	static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
+	static final short[][] DFA5_transition;
+
+	static {
+		int numStates = DFA5_transitionS.length;
+		DFA5_transition = new short[numStates][];
+		for (int i=0; i<numStates; i++) {
+			DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
+		}
+	}
+
+	protected class DFA5 extends DFA {
+
+		public DFA5(BaseRecognizer recognizer) {
+			this.recognizer = recognizer;
+			this.decisionNumber = 5;
+			this.eot = DFA5_eot;
+			this.eof = DFA5_eof;
+			this.min = DFA5_min;
+			this.max = DFA5_max;
+			this.accept = DFA5_accept;
+			this.special = DFA5_special;
+			this.transition = DFA5_transition;
+		}
+		@Override
+		public String getDescription() {
+			return "1:1: Tokens : ( SELECT | COUNT | FICHIER | NUMERO | NOMBRE | ENTRE | MOIS | ANNEE | JOUR | ET | OU | POINT | TEXTE | DATE | CHAR | VAR | WS );";
+		}
+	}
 
 }

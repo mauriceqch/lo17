@@ -1,7 +1,9 @@
-// $ANTLR 3.5.1 /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-12 15:56:16
+// $ANTLR 3.5.1 /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g 2017-12-19 01:41:42
 
     package main.sql.output;
     import main.sql.data.Arbre;
+    import java.util.function.Function;
+    import java.lang.Runnable;
 
 
 import org.antlr.runtime.*;
@@ -12,22 +14,28 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class Tal_sqlParser extends Parser {
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "CHAR", "CONJ", "COUNT", "DATE", 
-		"FICHIER", "NOMBRE", "NUMERO", "POINT", "SELECT", "TEXTE", "VAR", "WS"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ANNEE", "CHAR", "COUNT", "DATE", 
+		"ENTRE", "ET", "FICHIER", "JOUR", "MOIS", "NOMBRE", "NUMERO", "OU", "POINT", 
+		"SELECT", "TEXTE", "VAR", "WS"
 	};
 	public static final int EOF=-1;
-	public static final int CHAR=4;
-	public static final int CONJ=5;
+	public static final int ANNEE=4;
+	public static final int CHAR=5;
 	public static final int COUNT=6;
 	public static final int DATE=7;
-	public static final int FICHIER=8;
-	public static final int NOMBRE=9;
-	public static final int NUMERO=10;
-	public static final int POINT=11;
-	public static final int SELECT=12;
-	public static final int TEXTE=13;
-	public static final int VAR=14;
-	public static final int WS=15;
+	public static final int ENTRE=8;
+	public static final int ET=9;
+	public static final int FICHIER=10;
+	public static final int JOUR=11;
+	public static final int MOIS=12;
+	public static final int NOMBRE=13;
+	public static final int NUMERO=14;
+	public static final int OU=15;
+	public static final int POINT=16;
+	public static final int SELECT=17;
+	public static final int TEXTE=18;
+	public static final int VAR=19;
+	public static final int WS=20;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -45,12 +53,12 @@ public class Tal_sqlParser extends Parser {
 	}
 
 	@Override public String[] getTokenNames() { return Tal_sqlParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "/home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g"; }
+	@Override public String getGrammarFileName() { return "/home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g"; }
 
 
 
 	// $ANTLR start "listerequetes"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:49:1: listerequetes returns [Arbre lr_arbre = new Arbre(\"\")] : r= requete ( POINT )? ;
+	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:57:1: listerequetes returns [Arbre lr_arbre = new Arbre(\"\")] : r= requete ( POINT )? ;
 	public final Arbre listerequetes() throws RecognitionException {
 		Arbre lr_arbre =  new Arbre("");
 
@@ -58,14 +66,14 @@ public class Tal_sqlParser extends Parser {
 		Arbre r =null;
 
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:49:55: (r= requete ( POINT )? )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:50:3: r= requete ( POINT )?
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:57:55: (r= requete ( POINT )? )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:58:3: r= requete ( POINT )?
 			{
-			pushFollow(FOLLOW_requete_in_listerequetes190);
+			pushFollow(FOLLOW_requete_in_listerequetes298);
 			r=requete();
 			state._fsp--;
 
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:50:15: ( POINT )?
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:58:15: ( POINT )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==POINT) ) {
@@ -73,9 +81,9 @@ public class Tal_sqlParser extends Parser {
 			}
 			switch (alt1) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:50:15: POINT
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:58:15: POINT
 					{
-					match(input,POINT,FOLLOW_POINT_in_listerequetes192); 
+					match(input,POINT,FOLLOW_POINT_in_listerequetes300); 
 					}
 					break;
 
@@ -101,7 +109,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "requete"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:56:1: requete returns [Arbre req_arbre = new Arbre(\"\")] : SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) (ps= params )? ;
+	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:64:1: requete returns [Arbre req_arbre = new Arbre(\"\")] : SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) (ps= params )? ;
 	public final Arbre requete() throws RecognitionException {
 		Arbre req_arbre =  new Arbre("");
 
@@ -110,14 +118,14 @@ public class Tal_sqlParser extends Parser {
 
 		Arbre ps_arbre;
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:57:26: ( SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) (ps= params )? )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:58:3: SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) (ps= params )?
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:65:26: ( SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) (ps= params )? )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:66:3: SELECT ( NOMBRE | FICHIER | NUMERO | DATE ) ( TEXTE | DATE ) (ps= params )?
 			{
-			match(input,SELECT,FOLLOW_SELECT_in_requete220); 
+			match(input,SELECT,FOLLOW_SELECT_in_requete328); 
 
 							req_arbre.ajouteFils(new Arbre("","select "));
 						
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:62:3: ( NOMBRE | FICHIER | NUMERO | DATE )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:70:3: ( NOMBRE | FICHIER | NUMERO | DATE )
 			int alt2=4;
 			switch ( input.LA(1) ) {
 			case NOMBRE:
@@ -147,22 +155,22 @@ public class Tal_sqlParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:62:4: NOMBRE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:70:4: NOMBRE
 					{
-					match(input,NOMBRE,FOLLOW_NOMBRE_in_requete231); 
+					match(input,NOMBRE,FOLLOW_NOMBRE_in_requete339); 
 
-								String columns = "count(distinct fichier)";
+								String columns = "count(distinct texte.fichier)";
 								req_arbre.ajouteFils(new Arbre("",columns));
 								req_arbre.setStringData("columns", columns);
 								
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:68:5: FICHIER
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:76:5: FICHIER
 					{
-					match(input,FICHIER,FOLLOW_FICHIER_in_requete242); 
+					match(input,FICHIER,FOLLOW_FICHIER_in_requete350); 
 
-								String columns = "fichier";
+								String columns = "texte.fichier";
 								String displayColumns = "string_agg(mot, ',') as mots, " + columns;
 								req_arbre.ajouteFils(new Arbre("",displayColumns));
 								req_arbre.setStringData("columns", columns);
@@ -170,11 +178,11 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:75:6: NUMERO
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:83:6: NUMERO
 					{
-					match(input,NUMERO,FOLLOW_NUMERO_in_requete254); 
+					match(input,NUMERO,FOLLOW_NUMERO_in_requete362); 
 
-								String columns = "numero";
+								String columns = "texte.numero";
 								String displayColumns = "string_agg(mot, ',') as mots, " + columns;
 								req_arbre.ajouteFils(new Arbre("",displayColumns));
 								req_arbre.setStringData("columns", columns);
@@ -182,11 +190,11 @@ public class Tal_sqlParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:82:5: DATE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:90:5: DATE
 					{
-					match(input,DATE,FOLLOW_DATE_in_requete265); 
+					match(input,DATE,FOLLOW_DATE_in_requete373); 
 
-								String columns = "jour, mois, annee, texte.fichier";
+								String columns = "cast(jour as INT), mois, annee, texte.fichier";
 								String displayColumns = "string_agg(mot, ',') as mots, " + columns;
 								req_arbre.ajouteFils(new Arbre("", displayColumns));
 								req_arbre.setStringData("columns", columns);
@@ -196,7 +204,7 @@ public class Tal_sqlParser extends Parser {
 
 			}
 
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:89:3: ( TEXTE | DATE )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:97:3: ( TEXTE | DATE )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==TEXTE) ) {
@@ -214,18 +222,19 @@ public class Tal_sqlParser extends Parser {
 
 			switch (alt3) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:89:4: TEXTE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:97:4: TEXTE
 					{
-					match(input,TEXTE,FOLLOW_TEXTE_in_requete275); 
+					match(input,TEXTE,FOLLOW_TEXTE_in_requete383); 
 
-									req_arbre.ajouteFils(new Arbre("","from texte"));
+									req_arbre.ajouteFils(new Arbre("","from date"));
+									req_arbre.ajouteFils(new Arbre("","left join texte on texte.fichier = date.fichier"));
 								
 					}
 					break;
 				case 2 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:93:5: DATE
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:102:5: DATE
 					{
-					match(input,DATE,FOLLOW_DATE_in_requete286); 
+					match(input,DATE,FOLLOW_DATE_in_requete394); 
 
 									req_arbre.ajouteFils(new Arbre("","from date"));
 									req_arbre.ajouteFils(new Arbre("","left join texte on texte.fichier = date.fichier"));
@@ -235,17 +244,17 @@ public class Tal_sqlParser extends Parser {
 
 			}
 
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:99:6: (ps= params )?
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:108:6: (ps= params )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
-			if ( (LA4_0==VAR) ) {
+			if ( (LA4_0==ENTRE||LA4_0==VAR) ) {
 				alt4=1;
 			}
 			switch (alt4) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:99:6: ps= params
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:108:6: ps= params
 					{
-					pushFollow(FOLLOW_params_in_requete303);
+					pushFollow(FOLLOW_params_in_requete411);
 					ps=params();
 					state._fsp--;
 
@@ -287,7 +296,7 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "params"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:118:1: params returns [Arbre les_pars_arbre = new Arbre(\"\")] : par1= param ( (conj= CONJ )? par2= param )* ;
+	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:127:1: params returns [Arbre les_pars_arbre = new Arbre(\"\")] : par1= param ( (conj= ET |conj= OU )? par2= param )* ;
 	public final Arbre params() throws RecognitionException {
 		Arbre les_pars_arbre =  new Arbre("");
 
@@ -298,48 +307,59 @@ public class Tal_sqlParser extends Parser {
 
 		Arbre par1_arbre, par2_arbre;
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:119:40: (par1= param ( (conj= CONJ )? par2= param )* )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:120:3: par1= param ( (conj= CONJ )? par2= param )*
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:128:40: (par1= param ( (conj= ET |conj= OU )? par2= param )* )
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:129:3: par1= param ( (conj= ET |conj= OU )? par2= param )*
 			{
-			pushFollow(FOLLOW_param_in_params335);
+			pushFollow(FOLLOW_param_in_params443);
 			par1=param();
 			state._fsp--;
 
 
 							par1_arbre = par1;
 							les_pars_arbre.ajouteFils(par1_arbre);
-							les_pars_arbre.incrementIntegerData("param_count");
+							if (Boolean.TRUE.equals(par1_arbre.getBooleanData("count"))) {
+								les_pars_arbre.incrementIntegerData("param_count");
+							}
 						
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:126:3: ( (conj= CONJ )? par2= param )*
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:3: ( (conj= ET |conj= OU )? par2= param )*
 			loop6:
 			while (true) {
 				int alt6=2;
 				int LA6_0 = input.LA(1);
-				if ( (LA6_0==CONJ||LA6_0==VAR) ) {
+				if ( ((LA6_0 >= ENTRE && LA6_0 <= ET)||LA6_0==OU||LA6_0==VAR) ) {
 					alt6=1;
 				}
 
 				switch (alt6) {
 				case 1 :
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:126:4: (conj= CONJ )? par2= param
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:4: (conj= ET |conj= OU )? par2= param
 					{
-					// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:126:9: (conj= CONJ )?
-					int alt5=2;
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:4: (conj= ET |conj= OU )?
+					int alt5=3;
 					int LA5_0 = input.LA(1);
-					if ( (LA5_0==CONJ) ) {
+					if ( (LA5_0==ET) ) {
 						alt5=1;
+					}
+					else if ( (LA5_0==OU) ) {
+						alt5=2;
 					}
 					switch (alt5) {
 						case 1 :
-							// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:126:9: conj= CONJ
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:5: conj= ET
 							{
-							conj=(Token)match(input,CONJ,FOLLOW_CONJ_in_params349); 
+							conj=(Token)match(input,ET,FOLLOW_ET_in_params458); 
+							}
+							break;
+						case 2 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:137:17: conj= OU
+							{
+							conj=(Token)match(input,OU,FOLLOW_OU_in_params466); 
 							}
 							break;
 
 					}
 
-					pushFollow(FOLLOW_param_in_params356);
+					pushFollow(FOLLOW_param_in_params474);
 					par2=param();
 					state._fsp--;
 
@@ -347,8 +367,12 @@ public class Tal_sqlParser extends Parser {
 									par2_arbre = par2;
 									les_pars_arbre.ajouteFils(new Arbre("", "OR"));
 									les_pars_arbre.ajouteFils(par2_arbre);
-									les_pars_arbre.incrementIntegerData("param_count");			
+									if (Boolean.TRUE.equals(par2_arbre.getBooleanData("count"))) {
+										les_pars_arbre.incrementIntegerData("param_count");				
+									}
 									
+									System.out.println(conj);
+													System.out.println(conj.getText());
 									if (conj != null && "ET".equals(conj.getText())) {
 										les_pars_arbre.setBooleanData("intersection", true);
 									}
@@ -378,21 +402,230 @@ public class Tal_sqlParser extends Parser {
 
 
 	// $ANTLR start "param"
-	// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:140:1: param returns [Arbre lepar_arbre = new Arbre(\"\")] : a= VAR ;
+	// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:155:1: param returns [Arbre lepar_arbre = new Arbre(\"\")] : ( (a= VAR ) | ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? ) );
 	public final Arbre param() throws RecognitionException {
 		Arbre lepar_arbre =  new Arbre("");
 
 
 		Token a=null;
+		Token j1=null;
+		Token m1=null;
+		Token a1=null;
+		Token j2=null;
+		Token m2=null;
+		Token a2=null;
 
 		try {
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:140:51: (a= VAR )
-			// /home/quachmau/sandbox/lo17/correction/src/main/java/main/sql/Tal_sql.g:141:2: a= VAR
-			{
-			a=(Token)match(input,VAR,FOLLOW_VAR_in_param384); 
-			 lepar_arbre.ajouteFils(new Arbre("mot =", "'"+ a.getText() +"'"));
+			// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:155:51: ( (a= VAR ) | ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? ) )
+			int alt13=2;
+			int LA13_0 = input.LA(1);
+			if ( (LA13_0==VAR) ) {
+				alt13=1;
+			}
+			else if ( (LA13_0==ENTRE) ) {
+				alt13=2;
 			}
 
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 13, 0, input);
+				throw nvae;
+			}
+
+			switch (alt13) {
+				case 1 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:2: (a= VAR )
+					{
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:2: (a= VAR )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:156:3: a= VAR
+					{
+					a=(Token)match(input,VAR,FOLLOW_VAR_in_param503); 
+					 
+								lepar_arbre.ajouteFils(new Arbre("mot =", "'"+ a.getText() +"'"));
+								lepar_arbre.setBooleanData("count", true);
+								
+							
+					}
+
+					}
+					break;
+				case 2 :
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:162:6: ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? )
+					{
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:162:6: ( ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )? )
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:163:2: ENTRE (j1= JOUR )? (m1= MOIS )? (a1= ANNEE )? ET (j2= JOUR )? (m2= MOIS )? (a2= ANNEE )?
+					{
+					match(input,ENTRE,FOLLOW_ENTRE_in_param517); 
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:164:5: (j1= JOUR )?
+					int alt7=2;
+					int LA7_0 = input.LA(1);
+					if ( (LA7_0==JOUR) ) {
+						alt7=1;
+					}
+					switch (alt7) {
+						case 1 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:164:5: j1= JOUR
+							{
+							j1=(Token)match(input,JOUR,FOLLOW_JOUR_in_param524); 
+							}
+							break;
+
+					}
+
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:165:5: (m1= MOIS )?
+					int alt8=2;
+					int LA8_0 = input.LA(1);
+					if ( (LA8_0==MOIS) ) {
+						alt8=1;
+					}
+					switch (alt8) {
+						case 1 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:165:5: m1= MOIS
+							{
+							m1=(Token)match(input,MOIS,FOLLOW_MOIS_in_param532); 
+							}
+							break;
+
+					}
+
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:166:5: (a1= ANNEE )?
+					int alt9=2;
+					int LA9_0 = input.LA(1);
+					if ( (LA9_0==ANNEE) ) {
+						alt9=1;
+					}
+					switch (alt9) {
+						case 1 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:166:5: a1= ANNEE
+							{
+							a1=(Token)match(input,ANNEE,FOLLOW_ANNEE_in_param540); 
+							}
+							break;
+
+					}
+
+					match(input,ET,FOLLOW_ET_in_param544); 
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:168:5: (j2= JOUR )?
+					int alt10=2;
+					int LA10_0 = input.LA(1);
+					if ( (LA10_0==JOUR) ) {
+						alt10=1;
+					}
+					switch (alt10) {
+						case 1 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:168:5: j2= JOUR
+							{
+							j2=(Token)match(input,JOUR,FOLLOW_JOUR_in_param551); 
+							}
+							break;
+
+					}
+
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:169:5: (m2= MOIS )?
+					int alt11=2;
+					int LA11_0 = input.LA(1);
+					if ( (LA11_0==MOIS) ) {
+						alt11=1;
+					}
+					switch (alt11) {
+						case 1 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:169:5: m2= MOIS
+							{
+							m2=(Token)match(input,MOIS,FOLLOW_MOIS_in_param559); 
+							}
+							break;
+
+					}
+
+					// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:170:5: (a2= ANNEE )?
+					int alt12=2;
+					int LA12_0 = input.LA(1);
+					if ( (LA12_0==ANNEE) ) {
+						alt12=1;
+					}
+					switch (alt12) {
+						case 1 :
+							// /home/quachmau/git/lo17/correction/src/main/java/main/sql/Tal_sql.g:170:5: a2= ANNEE
+							{
+							a2=(Token)match(input,ANNEE,FOLLOW_ANNEE_in_param567); 
+							}
+							break;
+
+					}
+
+
+								Function<String, String> monthToInteger = (month) -> {
+									switch (month) {
+									case "JANVIER":
+									return "01";
+									case "FEVRIER":
+									return "02";
+									case "MARS":
+									return "03";
+									case "AVRIL":
+									return "04";
+									case "MAI":
+									return "05";
+									case "JUIN":
+									return "06";
+									case "JUILLET":
+									return "07";
+									case "AOUT":
+									return "08";
+									case "SEPTEMBRE":
+									return "09";
+									case "OCTOBRE":
+									return "10";
+									case "NOVEMBRE":
+									return "11";
+									case "DECEMBRE":
+									return "12";
+									default:
+									return "ERROR";
+									}
+								};
+								
+								Boolean selectorPresent = false;
+								
+								String fm1, fm2;
+								if (m1 != null && m2 != null) {
+									
+									fm1 = monthToInteger.apply(m1.getText());
+									fm2 = monthToInteger.apply(m2.getText());
+									if (selectorPresent) {
+										lepar_arbre.ajouteFils(new Arbre("", "AND"));
+									}
+									selectorPresent = true;
+									lepar_arbre.ajouteFils(new Arbre("mois >= ", "'"+ fm1 + "' AND mois <= '" + fm2 +"'"));
+								}
+								Integer fj1, fj2;
+								if (j1 != null && j2 != null) {
+									fj1 = Integer.valueOf(j1.getText());
+									fj2 = Integer.valueOf(j2.getText());
+									if (selectorPresent) {
+										lepar_arbre.ajouteFils(new Arbre("", "AND"));
+									}
+									selectorPresent = true;
+									lepar_arbre.ajouteFils(new Arbre("jour >= ", fj1 + " AND jour <= " + fj2));
+								}
+								String fa1, fa2;
+								if (a1 != null && a2 != null) {
+									fa1 = a1.getText();
+									fa2 = a2.getText();
+									if (selectorPresent) {
+										lepar_arbre.ajouteFils(new Arbre("", "AND"));
+									}
+									selectorPresent = true;
+									lepar_arbre.ajouteFils(new Arbre("annee >= ", "'" + fa1 + "' AND annee <= '" + fa2 + "'"));
+								}
+								
+							
+					}
+
+					}
+					break;
+
+			}
 		}
 		catch (RecognitionException re) {
 			reportError(re);
@@ -409,18 +642,27 @@ public class Tal_sqlParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_requete_in_listerequetes190 = new BitSet(new long[]{0x0000000000000802L});
-	public static final BitSet FOLLOW_POINT_in_listerequetes192 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SELECT_in_requete220 = new BitSet(new long[]{0x0000000000000780L});
-	public static final BitSet FOLLOW_NOMBRE_in_requete231 = new BitSet(new long[]{0x0000000000002080L});
-	public static final BitSet FOLLOW_FICHIER_in_requete242 = new BitSet(new long[]{0x0000000000002080L});
-	public static final BitSet FOLLOW_NUMERO_in_requete254 = new BitSet(new long[]{0x0000000000002080L});
-	public static final BitSet FOLLOW_DATE_in_requete265 = new BitSet(new long[]{0x0000000000002080L});
-	public static final BitSet FOLLOW_TEXTE_in_requete275 = new BitSet(new long[]{0x0000000000004002L});
-	public static final BitSet FOLLOW_DATE_in_requete286 = new BitSet(new long[]{0x0000000000004002L});
-	public static final BitSet FOLLOW_params_in_requete303 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_param_in_params335 = new BitSet(new long[]{0x0000000000004022L});
-	public static final BitSet FOLLOW_CONJ_in_params349 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_param_in_params356 = new BitSet(new long[]{0x0000000000004022L});
-	public static final BitSet FOLLOW_VAR_in_param384 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_requete_in_listerequetes298 = new BitSet(new long[]{0x0000000000010002L});
+	public static final BitSet FOLLOW_POINT_in_listerequetes300 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SELECT_in_requete328 = new BitSet(new long[]{0x0000000000006480L});
+	public static final BitSet FOLLOW_NOMBRE_in_requete339 = new BitSet(new long[]{0x0000000000040080L});
+	public static final BitSet FOLLOW_FICHIER_in_requete350 = new BitSet(new long[]{0x0000000000040080L});
+	public static final BitSet FOLLOW_NUMERO_in_requete362 = new BitSet(new long[]{0x0000000000040080L});
+	public static final BitSet FOLLOW_DATE_in_requete373 = new BitSet(new long[]{0x0000000000040080L});
+	public static final BitSet FOLLOW_TEXTE_in_requete383 = new BitSet(new long[]{0x0000000000080102L});
+	public static final BitSet FOLLOW_DATE_in_requete394 = new BitSet(new long[]{0x0000000000080102L});
+	public static final BitSet FOLLOW_params_in_requete411 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_param_in_params443 = new BitSet(new long[]{0x0000000000088302L});
+	public static final BitSet FOLLOW_ET_in_params458 = new BitSet(new long[]{0x0000000000080100L});
+	public static final BitSet FOLLOW_OU_in_params466 = new BitSet(new long[]{0x0000000000080100L});
+	public static final BitSet FOLLOW_param_in_params474 = new BitSet(new long[]{0x0000000000088302L});
+	public static final BitSet FOLLOW_VAR_in_param503 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ENTRE_in_param517 = new BitSet(new long[]{0x0000000000001A10L});
+	public static final BitSet FOLLOW_JOUR_in_param524 = new BitSet(new long[]{0x0000000000001210L});
+	public static final BitSet FOLLOW_MOIS_in_param532 = new BitSet(new long[]{0x0000000000000210L});
+	public static final BitSet FOLLOW_ANNEE_in_param540 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_ET_in_param544 = new BitSet(new long[]{0x0000000000001812L});
+	public static final BitSet FOLLOW_JOUR_in_param551 = new BitSet(new long[]{0x0000000000001012L});
+	public static final BitSet FOLLOW_MOIS_in_param559 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_ANNEE_in_param567 = new BitSet(new long[]{0x0000000000000002L});
 }

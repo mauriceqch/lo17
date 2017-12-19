@@ -5,5 +5,6 @@ public enum TokenType {
 	REQUEST_ITEMS,
 	REQUEST_TABLE,
 	CONJUNCTION,
-	WORD;
+	WORD,
+	SPECIAL;
 }

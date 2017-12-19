@@ -82,7 +82,7 @@ public class InputHandler {
 		String result = ImmutableList.of(requestType, requestItems, requestTable).stream().collect(Collectors.joining(" ")) + " " +
 				list
 					.stream()
-					.filter(t -> t.getType() == TokenType.WORD || t.getType() == TokenType.CONJUNCTION)
+					.filter(t -> ImmutableList.of(TokenType.WORD, TokenType.CONJUNCTION, TokenType.SPECIAL).contains(t.getType()))
 					.map(t -> t.getToken())
 					.collect(Collectors.joining(" "));
 		
